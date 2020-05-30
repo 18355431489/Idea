@@ -1,60 +1,91 @@
 package com.pojo;
 
+import java.util.Date;
+
 /**
- * @description: TODO
- * @author: 唐小甫
- * @create: 2020/5/29 22:05
- * @version: 1.0
+ * @author 唐兴甫
  */
 public class User {
 
-    private Long id;
-    private String name;
-    private Integer age;
-    private Boolean male;
+	private Long userId;
+	private String username;
+	private String password;
+	private String email;
+	private String mobile;
+	private Integer roleId;
+	private Integer status;
+	private Date createTime;
 
-    public User() {
+	public User() {}
+
+    public Long getUserId() {
+        return userId;
     }
 
-    public Long getId() {
-        return id;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public String getUsername() {
+        return username;
     }
 
-    public String getName() {
-        return name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getPassword() {
+        return password;
     }
 
-    public Integer getAge() {
-        return age;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public String getEmail() {
+        return email;
     }
 
-    public Boolean getMale() {
-        return male;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public void setMale(Boolean male) {
-        this.male = male;
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
+    public Integer getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(Integer roleId) {
+        this.roleId = roleId;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     @Override
     public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                ", male=" + male +
-                '}';
+        return "User [userId=" + userId + ", username=" + username + ", password=" + password + ", email=" + email
+                + ", mobile=" + mobile + ", roleId=" + roleId + ", status=" + status + ", createTime=" + createTime
+                + "]";
     }
 }
