@@ -9,7 +9,7 @@ public class User {
 
 	private Long userId;
 	private String username;
-	private String alie;
+//	private String alie;
 	private String password;
 	private String email;
 	private String mobile;
