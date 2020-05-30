@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a0da7ce3-c782-4b5f-b590-50b8ca655d6f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/pojo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/pojo/User.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -19,8 +20,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/pojo/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
+            <state relative-caret-position="146">
+              <caret line="11" column="23" lean-forward="true" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
               <folding>
                 <element signature="e#360#361#0" expanded="true" />
                 <element signature="e#389#390#0" expanded="true" />
@@ -277,7 +278,7 @@
       <updated>1590760505002</updated>
       <workItem from="1590760508939" duration="1542000" />
       <workItem from="1590762105611" duration="491000" />
-      <workItem from="1590843297090" duration="1878000" />
+      <workItem from="1590843297090" duration="2295000" />
     </task>
     <task id="LOCAL-00001" summary="Idea的第一次提交">
       <created>1590843862746</created>
@@ -335,17 +336,38 @@
       <option name="project" value="LOCAL" />
       <updated>1590844980631</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="idea提交6">
+      <created>1590845193449</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1590845193449</updated>
+    </task>
+    <task id="LOCAL-00010" summary="idea解决冲突之后的第一次提交">
+      <created>1590845327195</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1590845327195</updated>
+    </task>
+    <task id="LOCAL-00011" summary="idea提交7">
+      <created>1590845566668</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1590845566668</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3911000" />
+    <option name="totallyTimeSpent" value="4328000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25725192" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25725192" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -360,7 +382,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.7653061" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.42517006" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32993197" />
@@ -416,7 +438,10 @@
     <MESSAGE value="idea提交3" />
     <MESSAGE value="idea提交4" />
     <MESSAGE value="idea提交5" />
-    <option name="LAST_COMMIT_MESSAGE" value="idea提交5" />
+    <MESSAGE value="idea提交6" />
+    <MESSAGE value="idea解决冲突之后的第一次提交" />
+    <MESSAGE value="idea提交7" />
+    <option name="LAST_COMMIT_MESSAGE" value="idea提交7" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/com/util/CookieUtil.java" />
@@ -500,8 +525,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/pojo/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
+        <state relative-caret-position="146">
+          <caret line="11" column="23" lean-forward="true" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
           <folding>
             <element signature="e#360#361#0" expanded="true" />
             <element signature="e#389#390#0" expanded="true" />

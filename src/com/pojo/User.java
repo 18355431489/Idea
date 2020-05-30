@@ -10,6 +10,7 @@ public class User {
 	private Long userId;
 	private String username;
 	private String 唐小甫;
+	private String 唐大师;
 	private String password;
 	private String email;
 	private String mobile;
