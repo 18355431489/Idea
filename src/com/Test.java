@@ -16,5 +16,6 @@ public class Test {
 		sql = "select * from sys_user";
 		List<User> list = DBUtil.executeQueryListObject(sql, User.class);
 		list.forEach(System.out::println);
+		System.out.println("hello Test");
 	}
 }
