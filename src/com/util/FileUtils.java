@@ -250,7 +250,7 @@ public class FileUtils {
             ZipEntry entry = (ZipEntry) entries.nextElement();
             String zipEntryName = entry.getName();
             InputStream in = zip.getInputStream(entry);
-            String outPath = (descDir + "/" + zipEntryName).replaceAll("\\*", "/");
+            String outPath = (descDir + "/" + zipEntryName).replaceAll("\\\\", "/");
             //判断路径是否存在,不存在则创建文件路径
             File file = new File(outPath.substring(0, outPath.lastIndexOf('/')));
             if (!file.exists()) {
@@ -263,6 +263,11 @@ public class FileUtils {
             if (new File(outPath).isDirectory()) {
                 continue;
             }
+            File outFile = new File(outPath);
+            if (outFile.exists()) {
+                outFile.delete();
+            }
+            outFile.createNewFile();
             OutputStream out = new FileOutputStream(outPath);
             byte[] buf1 = new byte[1024];
             int len;
