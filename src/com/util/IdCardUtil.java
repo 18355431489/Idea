@@ -1,5 +1,6 @@
 package com.util;
 
+import java.io.IOException;
 import java.util.Calendar;
 import java.util.Arrays;
 
@@ -28,19 +29,19 @@ public class IdCardUtil {
     public static final String ID_18_REGEX = "^[1-9]\\d{5}(19|20)\\d{2}((0[1-9])|10|11|12)(([0-2][1-9])|10|20|30|31)\\d{3}[0-9xX]$";
 
     /** 省、直辖市代码表 */
-    public static final String CITY_CODE[] = {
+    public static final String[] CITY_CODE = {
             "11", "12", "13", "14", "15", "21", "22", "23", "31", "32", "33", "34", "35", "36", "37", "41",
             "42", "43", "44", "45", "46", "50", "51", "52", "53", "54", "61", "62", "63", "64", "65", "71",
             "81", "82", "91"
     };
 
     /** 每位加权因子 */
-    public static final int POWER[] = {
+    public static final int[] POWER = {
             7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2
     };
 
     /** 第18位校检码 */
-    public static final String VERIFY_CODE[] = {
+    public static final String[] VERIFY_CODE = {
             "1", "0", "X", "9", "8", "7", "6", "5", "4", "3", "2"
     };
 
@@ -116,7 +117,7 @@ public class IdCardUtil {
      * @author tangxingfu
      * @datetime 2020/11/20 17:39
      */
-    public static boolean validataBorn(int year, int month, int day) {
+    public static boolean validateBorn(int year, int month, int day) {
         Calendar instance = Calendar.getInstance();
         instance.set(year, month - 1, day);
         return instance.get(Calendar.YEAR) == year 
@@ -152,7 +153,7 @@ public class IdCardUtil {
 			}
 
 			int day = Integer.parseInt(idNo.substring(12, 14));
-			if (!validataBorn(year, month, day)) {
+			if (!validateBorn(year, month, day)) {
 				throw new RuntimeException("身份证日期错误");
 			}
 
@@ -161,15 +162,25 @@ public class IdCardUtil {
         return false;
     }
 
+    /**
+     * 验证18位身份证
+     * @param idNo
+     * @return boolean
+     * @author 唐小甫
+     * @datetime 2020/11/20 21:16
+     */
     public static boolean validateIdCard18(String idNo) {
-        boolean legalIdNo = false;
         int[] idCardInts = getIdCardInt(idNo);
-
-        return legalIdNo;
+        int sum = 0;
+        for (int i = 0; i < CHINA_ID_MAX_LENGTH - 1; i++) {
+            sum += idCardInts[i] * POWER[i];
+        }
+        String verifyCode = VERIFY_CODE[sum % 11];
+        return idNo.endsWith(verifyCode);
     }
 
 	public static void main (String[] args) {
 		String idNo = "342422199812045273";
-		System.out.println(getDayByIdCard(idNo));
+		System.out.println(validateIdCard18(idNo));
 	}
 }
