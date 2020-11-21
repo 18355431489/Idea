@@ -23,6 +23,7 @@ public final class DateTimeUtil {
 
     /** 时间刻度 */
     public static final int MILLISECOND_SCALE           = 1000;
+    public static final int MINUTE_SCALE                = 60;
     public static final int SECOND_SCALE                = 60;
     public static final int SECOND_HOUR_SCALE           = 3600;
     public static final int HOUR_DAY_SCALE              = 24;
@@ -368,8 +369,8 @@ public final class DateTimeUtil {
         strBuilder.insert(0, second + "秒");
         //分钟
         if (result > 0) {
-            long minute = result % SECOND_SCALE;
-            result /= SECOND_SCALE;
+            long minute = result % MINUTE_SCALE;
+            result /= MINUTE_SCALE;
             strBuilder.insert(0, minute + "分钟 ");
         }
         //小时
@@ -500,7 +501,7 @@ public final class DateTimeUtil {
             case DAY:
                 milliSecond *= HOUR_DAY_SCALE;
             case HOUR:
-                milliSecond *= SECOND_SCALE;
+                milliSecond *= MINUTE_SCALE;
             case MINUTE:
                 milliSecond *= SECOND_SCALE;
             case SECOND:
