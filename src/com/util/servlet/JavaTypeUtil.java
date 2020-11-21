@@ -1,4 +1,4 @@
-package com.util;
+package com.util.servlet;
 
 import java.util.Date;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.util;
+package com.util.jdbc;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

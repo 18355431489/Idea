@@ -1,4 +1,4 @@
-package com.util;
+package com.util.jdbc;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
@@ -74,7 +74,7 @@ public class MapperUtil {
             for (int i = 0; i < columnCount; i++) {
                 String columnName = metaData.getColumnLabel(i + 1);
                 Object columnValue = set.getObject(i + 1);
-                map.put(StringUtil.sqlNameTohumpName(columnName), columnValue);
+                map.put(MapperUtil.sqlNameTohumpName(columnName), columnValue);
             }
             return map;
         } catch (Exception e) {
@@ -99,8 +99,8 @@ public class MapperUtil {
             if (!methodName.startsWith("set")) {
                 continue;
             }
-            String fieldName = StringUtil.setMethodNameToFieldName(methodName);
-            if (!fieldName.equals(StringUtil.sqlNameTohumpName(columnName))) {
+            String fieldName = MapperUtil.setMethodNameToFieldName(methodName);
+            if (!fieldName.equals(MapperUtil.sqlNameTohumpName(columnName))) {
                 continue;
             }
             Parameter parameter = method.getParameters()[0];
@@ -112,5 +112,93 @@ public class MapperUtil {
             Method getMethod = clazz.getMethod("get" + parameterType, int.class);
             method.invoke(instance, getMethod.invoke(set, columnId));
         }
+    }
+
+
+
+
+
+    /**
+     * @describe: 驼峰命名转换SQL属性
+     * @param name
+     * @return
+     */
+    public static String humpNameToSqlName(String name) {
+        char ch = name.charAt(0);
+        if (Character.isUpperCase(ch)) {
+            name = name.replaceFirst(ch + "", Character.toLowerCase(ch) + "");
+        }
+        for (int i = 1; i < name.length(); i++) {
+            ch = name.charAt(i);
+            if (Character.isUpperCase(ch)) {
+                name = name.replace(ch + "", "_" + Character.toLowerCase(ch));
+            }
+        }
+        return name;
+    }
+
+
+    /**
+     * @describe: SQL属性转换驼峰命名
+     * @param name
+     * @return
+     */
+    public static String sqlNameTohumpName(String name) {
+        char ch;
+        int index;
+        while ((index = name.indexOf("_")) != -1) {
+            if (index < name.length() - 1 && index > 0) {
+                ch = name.charAt(index + 1);
+                name = name.replaceAll("_" + ch, "" + Character.toUpperCase(ch));
+            } else {
+                name = name.replaceFirst("_", "");
+            }
+        }
+        return name;
+    }
+
+
+    /**
+     * @describe: get/set方法名转换成员名
+     * @param methodName
+     * @return
+     */
+    public static String setMethodNameToFieldName(String methodName) {
+        String fieldName = methodName.substring(3);
+        char ch = fieldName.charAt(0);
+        return fieldName.replaceFirst(ch + "", Character.toLowerCase(ch) + "");
+    }
+
+
+    /**
+     * @describe: 属性名转set方法名
+     * @param fieldName
+     * @return
+     */
+    public static String fieldNameToSetMethodName(String fieldName) {
+        return fieldNameToMethodName(fieldName, "set");
+    }
+
+
+    /**
+     * @describe: 属性名转get方法名
+     * @param fieldName
+     * @return
+     */
+    public static String fieldNameToGetMethodName(String fieldName) {
+        return fieldNameToMethodName(fieldName, "get");
+    }
+
+
+    /**
+     * @describe: 属性名转方法名+方法前缀
+     * @param fieldName
+     * @param methodPreName
+     * @return
+     */
+    public static String fieldNameToMethodName(String fieldName, String methodPreName) {
+        char ch = fieldName.charAt(0);
+        fieldName = fieldName.replaceFirst(ch + "", Character.toUpperCase(ch) + "");
+        return methodPreName + fieldName;
     }
 }

@@ -1,4 +1,6 @@
-package com.util;
+package com.util.json;
+
+import com.util.json.JavaTypeUtil;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
