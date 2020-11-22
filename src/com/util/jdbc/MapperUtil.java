@@ -12,7 +12,7 @@ import java.util.Map;
 /**
  * @author: 唐小甫
  * @describe: 查询结果映射工具
- * @createTime: 2020-05-14 14:49:40
+ * @datetime: 2020-05-14 14:49:40
  * @version: 1.0
  */
 public class MapperUtil {

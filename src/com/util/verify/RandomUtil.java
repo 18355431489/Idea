@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * 随机数工具类
  * @author 唐小甫
- * @createTime 2020-11-22 18:17:15
+ * @datetime 2020-11-22 18:17:15
  */
 public class RandomUtil {
 

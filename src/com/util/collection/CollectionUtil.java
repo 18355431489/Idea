@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 /**
  * 集合工具类
  * @author 唐小甫
- * @createTime 2020-11-21 14:57:02
+ * @datetime 2020-11-21 14:57:02
  */
 public class CollectionUtil {
 

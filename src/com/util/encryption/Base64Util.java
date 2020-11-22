@@ -5,7 +5,7 @@ import java.util.Base64;
 /**
  * Base64加密/解密工具类
  * @author 唐小甫
- * @createTime 2020-11-22 17:42:00
+ * @datetime 2020-11-22 17:42:00
  */
 public class Base64Util {
 

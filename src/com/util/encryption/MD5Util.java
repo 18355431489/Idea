@@ -7,7 +7,7 @@ import java.security.NoSuchAlgorithmException;
 /**
  * MD5加密工具类
  * @author 唐小甫
- * @createTime 2020-11-22 17:43:51
+ * @datetime 2020-11-22 17:43:51
  */
 public class MD5Util {
 

@@ -11,7 +11,7 @@ import java.util.zip.ZipOutputStream;
 /**
  * 文件工具类
  * @author 唐小甫
- * @createTime 2020-11-22 17:44:37
+ * @datetime 2020-11-22 17:44:37
  */
 public class FileUtil {
 

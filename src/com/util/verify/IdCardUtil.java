@@ -5,7 +5,7 @@ import java.util.Calendar;
 /**
  * 身份证号工具类
  * @author 唐小甫
- * @createTime 2020-11-22 21:02:55
+ * @datetime 2020-11-22 21:02:55
  */
 public class IdCardUtil {
 

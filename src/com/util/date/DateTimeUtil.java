@@ -7,7 +7,7 @@ import java.util.Date;
 /**
  * 日期时间工具类
  * @author 唐小甫
- * @createTime 2020-11-21 15:11:22
+ * @datetime 2020-11-21 15:11:22
  */
 public final class DateTimeUtil {
 

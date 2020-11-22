@@ -18,7 +18,7 @@ import java.util.Properties;
 /**
  * 邮箱工具类
  * @author 唐小甫
- * @createTime 2020-11-22 17:40:44
+ * @datetime 2020-11-22 17:40:44
  */
 public class EmailUtil {
 

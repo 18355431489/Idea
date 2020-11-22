@@ -6,7 +6,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 /**
  * java类型工具类
  * @author 唐小甫
- * @createTime 2020-11-22 21:26:39
+ * @datetime 2020-11-22 21:26:39
  */
 public class JavaTypeUtil {
 

@@ -7,7 +7,7 @@ import java.sql.SQLException;
 /**
  * @author: 唐小甫
  * @describe: JDBC工具
- * @createTime: 2020-05-14 12:42:38
+ * @datetime: 2020-05-14 12:42:38
  * @version: 1.0
  */
 public class JdbcUtils {

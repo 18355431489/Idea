@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @describe: 请求工具(未完成)
  * @author: 唐小甫
- * @createTime: 2020-05-14 22:23:22
+ * @datetime: 2020-05-14 22:23:22
  * @version: 1.0
  */
 public class RequestUtil {
