@@ -16,9 +16,9 @@ import java.util.Map;
 import java.util.Properties;
 
 /**
- * 邮箱操作
- * @author 唐兴甫
- * @create 2019/10/18 17:24
+ * 邮箱工具类
+ * @author 唐小甫
+ * @createTime 2020-11-22 17:40:44
  */
 public class EmailUtil {
 

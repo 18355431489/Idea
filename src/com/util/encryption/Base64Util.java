@@ -3,9 +3,9 @@ package com.util.encryption;
 import java.util.Base64;
 
 /**
- * Base64加密/解密工具
- * @author 唐兴甫
- * @create 2019/10/18 17:38
+ * Base64加密/解密工具类
+ * @author 唐小甫
+ * @createTime 2020-11-22 17:42:00
  */
 public class Base64Util {
 

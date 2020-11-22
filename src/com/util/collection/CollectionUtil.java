@@ -1,11 +1,12 @@
 package com.util.collection;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.stream.Collectors;
 
 /**
- * 集合操作
+ * 集合工具类
  * @author 唐小甫
- * @create 2020/11/21 14:57
+ * @createTime 2020-11-21 14:57:02
  */
 public class CollectionUtil {
 
@@ -29,17 +30,10 @@ public class CollectionUtil {
      * @author 唐小甫
      * @datetime 2020/11/21 14:59
      */
-    public static String toCollectionFmt(Collection<?> collection, String separator) {
-        StringBuilder strBuilder = new StringBuilder();
+    public static String toCollectionFmt(Collection<String> collection, String separator) {
         if (isEmpty(collection)) {
-            return strBuilder.toString();
+            return "";
         }
-        for (Object obj : collection) {
-            if (obj == null || obj.toString().length() == 0) {
-                continue;
-            }
-            strBuilder.append(obj.toString() + separator);
-        }
-        return strBuilder.deleteCharAt(strBuilder.length() - 1).toString();
+        return collection.stream().collect(Collectors.joining(separator));
     }
 }

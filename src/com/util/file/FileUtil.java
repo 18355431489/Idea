@@ -9,18 +9,18 @@ import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
 
 /**
- * 文件操作
- *
- * @author tangxingfu
- * @datetime 2020/11/11 10:10
+ * 文件工具类
+ * @author 唐小甫
+ * @createTime 2020-11-22 17:44:37
  */
-public class FileUtils {
+public class FileUtil {
 
     /**
      * 获取文件、文件夹中所有的文件对象
      *
      * @param path 路径
-     * @author tangxingfu
+     * @return java.util.List<java.io.File>
+     * @author 唐小甫
      * @datetime 2020/11/11 10:11
      */
     public static List<File> getFilesByPath(String path) {
@@ -49,7 +49,8 @@ public class FileUtils {
      * 递归删除文件/文件夹
      *
      * @param filePath 文件路径
-     * @author tangxingfu
+     * @return void
+     * @author 唐小甫
      * @datetime 2020/11/11 10:54
      */
     public static void deleteFile(String filePath) {
@@ -74,7 +75,8 @@ public class FileUtils {
      * @param files    文件集合
      * @param filePath 压缩文件存放路径
      * @param zipName  压缩文件名
-     * @author tangxingfu
+     * @return java.io.File
+     * @author 唐小甫
      * @datetime 2020/11/11 9:27
      */
     public static File filesToZipExcludeDirectory(List<File> files, String filePath, String zipName) {
@@ -137,6 +139,9 @@ public class FileUtils {
      *
      * @param sourcePath 文件或文件夹路径
      * @param zipPath    zip文件的全路径
+     * @return void
+     * @author 唐小甫
+     * @datetime 2020/11/22 17:48
      */
     public static void filesToZip(String sourcePath, String zipPath) {
         FileOutputStream fout = null;
@@ -177,7 +182,8 @@ public class FileUtils {
      * @param file       文件
      * @param parentPath 父路径
      * @param zipOut     压缩输出流
-     * @author tangxingfu
+     * @return void
+     * @author 唐小甫
      * @datetime 2020/11/11 15:33
      */
     private static void writeZip(File file, String parentPath, ZipOutputStream zipOut) {
@@ -234,7 +240,9 @@ public class FileUtils {
      *
      * @param zipFile 压缩文件
      * @param descDir 解压文件存放路径
-     * @author tangxingfu
+     * @return java.util.List<java.io.File>
+     * @throws IOException
+     * @author 唐小甫
      * @datetime 2020/11/11 9:29
      */
     public static List<File> zipToFiles(File zipFile, String descDir) throws IOException {

@@ -3,8 +3,9 @@ package com.util.verify;
 import java.util.Calendar;
 
 /**
- * @author tangxingfu
- * @datetime 2020/11/20 15:32
+ * 身份证号工具类
+ * @author 唐小甫
+ * @createTime 2020-11-22 21:02:55
  */
 public class IdCardUtil {
 
@@ -16,12 +17,6 @@ public class IdCardUtil {
 
     /** 中国公民身份证号码最远年份 */
     public static final int MIN_ID_YEAR = 1930;
-
-    /** 空格 */
-    public static final String SPACE = " ";
-
-    /** 空字符串 */
-    public static final String EMPTY_STRING = "";
 
     /** 18位身份证正则表达式 */
     public static final String ID_18_REGEX = "^[1-9]\\d{5}(19|20)\\d{2}((0[1-9])|10|11|12)(([0-2][1-9])|10|20|30|31)\\d{3}[0-9xX]$";
@@ -43,11 +38,13 @@ public class IdCardUtil {
             "1", "0", "X", "9", "8", "7", "6", "5", "4", "3", "2"
     };
 
+
     /**
      * 获取身份证号数组
      * @param idNo
-     * @author tangxingfu
-     * @datetime 2020/11/20 15:47
+     * @return int[]
+     * @author 唐小甫
+     * @datetime 2020/11/22 21:04
      */
     public static int[] getIdCardInt(String idNo) {
         validateIdCardBefore(idNo);
@@ -59,11 +56,13 @@ public class IdCardUtil {
         return idNos;
     }
 
+
     /**
      * 获取身份证号数组
      * @param idNoChars
-     * @author tangxingfu
-     * @datetime 2020/11/20 15:48
+     * @return int[]
+     * @author 唐小甫
+     * @datetime 2020/11/22 21:04
      */
     public static int[] getIdCardInt(char[] idNoChars) {
         validateIdCardBefore(String.copyValueOf(idNoChars));
@@ -74,33 +73,39 @@ public class IdCardUtil {
         return idNos;
     }
 
+
     /**
      * 获取出生年份
      * @param idNo
-     * @author tangxingfu
-     * @datetime 2020/11/20 17:24
+     * @return int
+     * @author 唐小甫
+     * @datetime 2020/11/22 21:05
      */
     public static int getYearByIdCard(String idNo) {
         validateIdCardBefore(idNo);
         return Integer.parseInt(idNo.substring(6, 10));
     }
 
+
     /**
      * 获取出生月份
      * @param idNo
-     * @author tangxingfu
-     * @datetime 2020/11/20 17:35
+     * @return int
+     * @author 唐小甫
+     * @datetime 2020/11/22 21:05
      */
     public static int getMonthByIdCard(String idNo) {
         validateIdCardBefore(idNo);
         return Integer.parseInt(idNo.substring(10, 12));
     }
 
+
     /**
      * 获取出生日
      * @param idNo
-     * @author tangxingfu
-     * @datetime 2020/11/20 17:36
+     * @return int
+     * @author 唐小甫
+     * @datetime 2020/11/22 21:06
      */
     public static int getDayByIdCard(String idNo) {
         validateIdCardBefore(idNo);
@@ -112,22 +117,25 @@ public class IdCardUtil {
      * @param year
      * @param month
      * @param day
-     * @author tangxingfu
+     * @return boolean
+     * @author 唐小甫
      * @datetime 2020/11/20 17:39
      */
     public static boolean validateBorn(int year, int month, int day) {
         Calendar instance = Calendar.getInstance();
         instance.set(year, month - 1, day);
-        return instance.get(Calendar.YEAR) == year 
-			&& instance.get(Calendar.MONTH) == month - 1
-			&& instance.get(Calendar.DATE) == day;
+        return instance.get(Calendar.YEAR) == year
+                && instance.get(Calendar.MONTH) == month - 1
+                && instance.get(Calendar.DATE) == day;
     }
+
 
     /**
      * 身份证初步校验
      * @param idNo
-     * @author tangxingfu
-     * @datetime 2020/11/20 17:25
+     * @return boolean
+     * @author 唐小甫
+     * @datetime 2020/11/22 21:07
      */
     public static boolean validateIdCardBefore(String idNo) {
         if (idNo == null || idNo.length() == 0) {
@@ -138,34 +146,35 @@ public class IdCardUtil {
             if (!idNo.matches(ID_18_REGEX)) {
                 throw new RuntimeException("身份证格式错误");
             }
-			int year = Integer.parseInt(idNo.substring(6, 10));
-			Calendar instance = Calendar.getInstance();
-			int currentYear = instance.get(Calendar.YEAR);
-			if (year < MIN_ID_YEAR || year > currentYear) {
-				throw new RuntimeException("身份证年份错误");
-			}
+            int year = Integer.parseInt(idNo.substring(6, 10));
+            Calendar instance = Calendar.getInstance();
+            int currentYear = instance.get(Calendar.YEAR);
+            if (year < MIN_ID_YEAR || year > currentYear) {
+                throw new RuntimeException("身份证年份错误");
+            }
 
-			int month = Integer.parseInt(idNo.substring(10, 12));
-			if (month <= Calendar.JANUARY || month > Calendar.UNDECIMBER) {
-				throw new RuntimeException("身份证月份错误");
-			}
+            int month = Integer.parseInt(idNo.substring(10, 12));
+            if (month <= Calendar.JANUARY || month > Calendar.UNDECIMBER) {
+                throw new RuntimeException("身份证月份错误");
+            }
 
-			int day = Integer.parseInt(idNo.substring(12, 14));
-			if (!validateBorn(year, month, day)) {
-				throw new RuntimeException("身份证日期错误");
-			}
+            int day = Integer.parseInt(idNo.substring(12, 14));
+            if (!validateBorn(year, month, day)) {
+                throw new RuntimeException("身份证日期错误");
+            }
 
-			return true;
+            return true;
         }
         return false;
     }
+
 
     /**
      * 验证18位身份证
      * @param idNo
      * @return boolean
      * @author 唐小甫
-     * @datetime 2020/11/20 21:16
+     * @datetime 2020/11/22 21:07
      */
     public static boolean validateIdCard18(String idNo) {
         int[] idCardInts = getIdCardInt(idNo);

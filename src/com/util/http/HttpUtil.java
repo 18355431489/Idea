@@ -3,20 +3,21 @@ package com.util.http;
 import okhttp3.*;
 
 import java.io.*;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLEncoder;
+import java.net.*;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * http请求
- * @datetime: 2020/08/04 17:51:15
- * @author:tangxingfu
+ * HTTP工具类
+ * @author 唐小甫
+ * @createTime 2020-11-22 17:51:07
  */
-public class AppTest {
+public class HttpUtil {
 
     private OkHttpClient client = new OkHttpClient();
+
+    /** 可变长度字符编码 */
+    public static final String ENCODING = "UTF-8";
 
     /**
      * GET测试
@@ -45,21 +46,19 @@ public class AppTest {
         System.out.println(sendPost(url, params));
     }
 
+
     /**
      * 发送GET请求
-     *
      * @param baseUrl
      * @param params
-     * @return
-     * @throws IOException
-     * @datetime: 2020/8/3 9:39
-     * @author:tangxingfu
+     * @return java.lang.String
+     * @author 唐小甫
+     * @datetime 2020/11/22 17:51
      */
-    @SuppressWarnings("rawtypes")
     public String sendGet(String baseUrl, HashMap<String, Object> params) throws IOException {
         String url = baseUrl + "?";
         if (params != null && params.size() != 0) {
-            for (Map.Entry entry : params.entrySet()) {
+            for (Map.Entry<String, Object> entry : params.entrySet()) {
                 url += entry.getKey() + "=" + entry.getValue() + "&";
             }
         }
@@ -73,23 +72,20 @@ public class AppTest {
 
     /**
      * 发送POST请求
-     *
      * @param baseUrl
      * @param params
-     * @return
-     * @throws IOException
-     * @datetime: 2020/8/3 9:39
-     * @author:tangxingfu
+     * @return java.lang.String
+     * @author 唐小甫
+     * @datetime 2020/11/22 17:54
      */
-    @SuppressWarnings("rawtypes")
     public String sendPost(String baseUrl, HashMap<String, Object> params) throws IOException {
         FormBody.Builder builder = new FormBody.Builder();
         if (params != null && params.size() != 0) {
-            for (Map.Entry entry : params.entrySet()) {
+            for (Map.Entry<String, Object> entry : params.entrySet()) {
                 if (entry != null && entry.getValue() != null) {
-                    builder.add(entry.getKey().toString(), entry.getValue().toString());
+                    builder.add(entry.getKey(), entry.getValue().toString());
                 } else if (entry != null){
-                    builder.add(entry.getKey().toString(), null);
+                    builder.add(entry.getKey(), null);
                 }
             }
         }
@@ -101,21 +97,17 @@ public class AppTest {
     }
 
 
-
-
-
     /**
      * 发送GET请求
-     *
      * @param path
      * @param params
      * @param encoding
-     * @return
-     * @throws Exception
-     * @datetime: 2020/8/3 9:39
-     * @author:tangxingfu
+     * @return java.lang.String
+     * @throws IOException
+     * @author 唐小甫
+     * @datetime 2020/11/22 18:02
      */
-    public static String sendGETRequest(String path, Map<String, Object> params, String encoding) throws Exception {
+    public static String sendGETRequest(String path, Map<String, Object> params, String encoding) throws IOException {
         StringBuilder url = new StringBuilder(path);
         url.append("?");
         if (params != null && !params.isEmpty()) {
@@ -129,28 +121,29 @@ public class AppTest {
         return getResponseText(conn);
     }
 
+
+
     /**
      * 发送POST请求
-     *
-     * @param path
-     * @param params
-     * @param encoding
-     * @return
-     * @throws Exception
-     * @datetime: 2020/8/3 9:39
-     * @author:tangxingfu
+     * @param url      请求地址
+     * @param params   键值对
+     * @param encoding 编码方式
+     * @return java.lang.String
+     * @throws IOException
+     * @author 唐小甫
+     * @datetime 2020/11/22 18:00
      */
-    public static String sendPOSTRequest(String path, Map<String, Object> params, String encoding) throws Exception {
+    public static String sendPOSTRequest(String url, Map<String, Object> params, String encoding) throws IOException {
         StringBuilder data = new StringBuilder();
         if (params != null && !params.isEmpty()) {
             data = getParameterBuilder(params, encoding);
             data.deleteCharAt(data.length() - 1);
         }
-        System.out.println("POST请求地址: " + path);
+        System.out.println("POST请求地址: " + url);
         System.out.println("POST请求参数: " + data.toString());
         //生成实体数据
         byte[] entity = data.toString().getBytes();
-        HttpURLConnection conn = (HttpURLConnection) new URL(path).openConnection();
+        HttpURLConnection conn = (HttpURLConnection) new URL(url).openConnection();
         conn.setConnectTimeout(5000);
         conn.setRequestMethod("POST");
         //允许对外输出数据
@@ -162,14 +155,15 @@ public class AppTest {
         return getResponseText(conn);
     }
 
+
     /**
      * 获取 key=value&key=value 形式的字符串
-     *
-     * @datetime: 2020/8/4 11:13
-     * @param params
-     * @param encoding
-     * @return:
-     * @author:tangxingfu
+     * @param params   键值对
+     * @param encoding 编码方式
+     * @return java.lang.StringBuilder
+     * @throws UnsupportedEncodingException
+     * @author 唐小甫
+     * @datetime 2020/11/22 17:58
      */
     private static StringBuilder getParameterBuilder(Map<String, Object> params, String encoding) throws UnsupportedEncodingException {
         StringBuilder data = new StringBuilder();
@@ -183,14 +177,14 @@ public class AppTest {
         return data;
     }
 
+
     /**
      * 获取响应信息
-     *
-     * @datetime: 2020/8/3 10:00
      * @param conn
-     * @return
+     * @return java.lang.String
      * @throws IOException
-     * @author:tangxingfu
+     * @author 唐小甫
+     * @datetime 2020/11/22 17:55
      */
     private static String getResponseText(HttpURLConnection conn) throws IOException {
         InputStream is = conn.getInputStream();
