@@ -1,8 +1,6 @@
 package com.util.verify;
 
-import java.io.IOException;
 import java.util.Calendar;
-import java.util.Arrays;
 
 /**
  * @author tangxingfu

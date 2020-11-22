@@ -16,7 +16,7 @@ public class CollectionUtil {
      * @author 唐小甫
      * @datetime 2020/11/21 15:42
      */
-    public static boolean isEmpty(Collection collection) {
+    public static boolean isEmpty(Collection<?> collection) {
         return collection == null || collection.size() == 0;
     }
 
@@ -29,7 +29,7 @@ public class CollectionUtil {
      * @author 唐小甫
      * @datetime 2020/11/21 14:59
      */
-    public static String toCollectionFmt(Collection collection, String separator) {
+    public static String toCollectionFmt(Collection<?> collection, String separator) {
         StringBuilder strBuilder = new StringBuilder();
         if (isEmpty(collection)) {
             return strBuilder.toString();

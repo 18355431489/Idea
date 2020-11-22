@@ -55,6 +55,7 @@ public class AppTest {
      * @datetime: 2020/8/3 9:39
      * @author:tangxingfu
      */
+    @SuppressWarnings("rawtypes")
     public String sendGet(String baseUrl, HashMap<String, Object> params) throws IOException {
         String url = baseUrl + "?";
         if (params != null && params.size() != 0) {
@@ -80,6 +81,7 @@ public class AppTest {
      * @datetime: 2020/8/3 9:39
      * @author:tangxingfu
      */
+    @SuppressWarnings("rawtypes")
     public String sendPost(String baseUrl, HashMap<String, Object> params) throws IOException {
         FormBody.Builder builder = new FormBody.Builder();
         if (params != null && params.size() != 0) {
