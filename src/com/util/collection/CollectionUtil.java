@@ -15,7 +15,7 @@ public class CollectionUtil {
      * @param collection
      * @return boolean
      * @author 唐小甫
-     * @datetime 2020/11/21 15:42
+     * @datetime 2020-11-21 15:42:49
      */
     public static boolean isEmpty(Collection<?> collection) {
         return collection == null || collection.size() == 0;
@@ -28,7 +28,7 @@ public class CollectionUtil {
      * @param separator  分隔符
      * @return java.lang.String
      * @author 唐小甫
-     * @datetime 2020/11/21 14:59
+     * @datetime 2020-11-21 14:59:49
      */
     public static String toCollectionFmt(Collection<String> collection, String separator) {
         if (isEmpty(collection)) {

@@ -82,7 +82,7 @@ public final class DateTimeUtil {
      *
      * @return java.lang.String
      * @author 唐小甫
-     * @datetime 2020/11/21 15:14
+     * @datetime 2020-11-21 15:14:49
      * @see #getFormatString(Date, String)
      */
     public static String getFormatString() {
@@ -95,7 +95,7 @@ public final class DateTimeUtil {
      * @param pattern
      * @return java.lang.String
      * @author 唐小甫
-     * @datetime 2020/11/21 15:16
+     * @datetime 2020-11-21 15:16:49
      * @see #getFormatString(Date, String)
      */
     public static String getFormatString(String pattern) {
@@ -108,7 +108,7 @@ public final class DateTimeUtil {
      * @param date
      * @return java.lang.String
      * @author 唐小甫
-     * @datetime 2020/11/21 15:18
+     * @datetime 2020-11-21 15:18:49
      * @see #getFormatString(Date, String)
      */
     public static String getFormatString(Date date) {
@@ -122,7 +122,7 @@ public final class DateTimeUtil {
      * @param format
      * @return java.lang.String
      * @author 唐小甫
-     * @datetime 2020/11/21 15:18
+     * @datetime 2020-11-21 15:18:49
      * @see #DEFAULT_ALL_DATETIME_PATTERN
      * @see #DEFAULT_DATETIME_PATTERN
      * @see #DEFAULT_DATETIME_PATTERN2
@@ -165,7 +165,7 @@ public final class DateTimeUtil {
      * @param date
      * @return java.util.Date
      * @author 唐小甫
-     * @datetime 2020/11/21 15:17
+     * @datetime 2020-11-21 15:17:49
      * @see #DEFAULT_ALL_DATETIME_PATTERN
      * @see #DEFAULT_DATETIME_PATTERN
      * @see #DEFAULT_DATE_PATTERN
@@ -192,7 +192,7 @@ public final class DateTimeUtil {
      * @param format
      * @return java.util.Date
      * @author 唐小甫
-     * @datetime 2020/11/21 15:17
+     * @datetime 2020-11-21 15:17:49
      * @see #DEFAULT_ALL_DATETIME_PATTERN
      * @see #DEFAULT_DATETIME_PATTERN
      * @see #DEFAULT_DATETIME_PATTERN2
@@ -236,7 +236,7 @@ public final class DateTimeUtil {
      * @param format
      * @return boolean
      * @author 唐小甫
-     * @datetime 2020/11/21 17:05
+     * @datetime 2020-11-21 17:05:49
      * @see #DEFAULT_ALL_DATETIME_PATTERN
      * @see #DEFAULT_DATETIME_PATTERN
      * @see #DEFAULT_DATETIME_PATTERN2
@@ -270,7 +270,7 @@ public final class DateTimeUtil {
      * @param year
      * @return boolean true: 闰年，false: 平年
      * @author 唐小甫
-     * @datetime 2020/11/21 17:23
+     * @datetime 2020-11-21 17:23:49
      */
     public static boolean isLeapYear(int year) {
         Calendar instance = Calendar.getInstance();
@@ -286,7 +286,7 @@ public final class DateTimeUtil {
      * @param dateType 时间差类型
      * @return java.lang.Double
      * @author 唐小甫
-     * @datetime 2020/11/21 18:39
+     * @datetime 2020-11-21 18:39:49
      * @see #YEAR
      * @see #MONTH
      * @see #WEEK
@@ -348,7 +348,7 @@ public final class DateTimeUtil {
      * @param date2
      * @return java.lang.String
      * @author 唐小甫
-     * @datetime 2020/11/21 20:56
+     * @datetime 2020-11-21 20:56:49
      */
     public static String timeSub(Date date1, Date date2) {
         if (date1 == null) {
@@ -394,7 +394,7 @@ public final class DateTimeUtil {
      * @param toType  时间转换后类型
      * @return java.lang.Double
      * @author 唐小甫
-     * @datetime 2020/11/21 21:00
+     * @datetime 2020-11-21 21:00:49
      * @see #YEAR
      * @see #MONTH
      * @see #WEEK
@@ -418,7 +418,7 @@ public final class DateTimeUtil {
      * @param toType      指定时间类型
      * @return java.lang.Double
      * @author 唐小甫
-     * @datetime 2020/11/21 22:24
+     * @datetime 2020-11-21 22:24:49
      * @see #YEAR
      * @see #MONTH
      * @see #WEEK
@@ -469,7 +469,7 @@ public final class DateTimeUtil {
      * @param srcType 时间类型
      * @return long   毫秒值
      * @author 唐小甫
-     * @datetime 2020/11/21 22:01
+     * @datetime 2020-11-21 22:01:49
      * @see #YEAR
      * @see #MONTH
      * @see #WEEK
@@ -519,7 +519,7 @@ public final class DateTimeUtil {
      * @param dateType  周/月/年
      * @return int
      * @author 唐小甫
-     * @datetime 2020/11/21 22:42
+     * @datetime 2020-11-21 22:42:49
      * @see #DAY
      * @see #YEAR
      * @see #MONTH

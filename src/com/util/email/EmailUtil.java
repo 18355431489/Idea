@@ -27,7 +27,7 @@ public class EmailUtil {
      * @param user
      * @return void
      * @author 唐小甫
-     * @datetime 2020/11/21 23:29
+     * @datetime 2020-11-21 23:29:49
      */
     public static void sendEmail(Map<String, String> user){
         //发送方的账号

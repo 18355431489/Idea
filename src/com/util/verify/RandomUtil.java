@@ -42,7 +42,7 @@ public class RandomUtil {
      * @param digit      位数
      * @return java.lang.String
      * @author 唐小甫
-     * @datetime 2020/11/22 19:24
+     * @datetime 2020-11-22 19:24:49
      */
     public static final String random (int randomType, int digit) {
         if (randomType < NUMBERS || randomType > NUMBERS_UPPERCASE_NUMBERS) {
@@ -88,7 +88,7 @@ public class RandomUtil {
      * @param digit 位数
      * @return java.lang.String
      * @author 唐小甫
-     * @datetime 2020/11/22 18:54
+     * @datetime 2020-11-22 18:54:49
      */
     public static final String random (char[] chars, int digit) {
         if (chars == null || chars.length == 0) {

@@ -18,7 +18,7 @@ public class StringUtil {
      * @param str
      * @return boolean
      * @author 唐小甫
-     * @datetime 2020/11/21 14:33
+     * @datetime 2020-11-21 14:33:49
      */
     public static boolean isEmpty(String str) {
         return str == null || str.length() == 0;
@@ -30,7 +30,7 @@ public class StringUtil {
      * @param str
      * @return boolean
      * @author 唐小甫
-     * @datetime 2020/11/21 14:46
+     * @datetime 2020-11-21 14:46:49
      */
     public static boolean isBlank(String str) {
         if (str == null) {

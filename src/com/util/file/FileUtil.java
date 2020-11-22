@@ -21,7 +21,7 @@ public class FileUtil {
      * @param path 路径
      * @return java.util.List<java.io.File>
      * @author 唐小甫
-     * @datetime 2020/11/11 10:11
+     * @datetime 2020-11-11 10:11:49
      */
     public static List<File> getFilesByPath(String path) {
         List<File> files = new ArrayList<>();
@@ -51,7 +51,7 @@ public class FileUtil {
      * @param filePath 文件路径
      * @return void
      * @author 唐小甫
-     * @datetime 2020/11/11 10:54
+     * @datetime 2020-11-11 10:54:49
      */
     public static void deleteFile(String filePath) {
         File file = new File(filePath);
@@ -77,7 +77,7 @@ public class FileUtil {
      * @param zipName  压缩文件名
      * @return java.io.File
      * @author 唐小甫
-     * @datetime 2020/11/11 9:27
+     * @datetime 2020-11-11 9:27:49
      */
     public static File filesToZipExcludeDirectory(List<File> files, String filePath, String zipName) {
         File file = new File(filePath);
@@ -141,7 +141,7 @@ public class FileUtil {
      * @param zipPath    zip文件的全路径
      * @return void
      * @author 唐小甫
-     * @datetime 2020/11/22 17:48
+     * @datetime 2020-11-22 17:48:49
      */
     public static void filesToZip(String sourcePath, String zipPath) {
         FileOutputStream fout = null;
@@ -184,7 +184,7 @@ public class FileUtil {
      * @param zipOut     压缩输出流
      * @return void
      * @author 唐小甫
-     * @datetime 2020/11/11 15:33
+     * @datetime 2020-11-11 15:33:49
      */
     private static void writeZip(File file, String parentPath, ZipOutputStream zipOut) {
         if (!file.exists()) {
@@ -243,7 +243,7 @@ public class FileUtil {
      * @return java.util.List<java.io.File>
      * @throws IOException
      * @author 唐小甫
-     * @datetime 2020/11/11 9:29
+     * @datetime 2020-11-11 9:29:49
      */
     public static List<File> zipToFiles(File zipFile, String descDir) throws IOException {
         List<File> list = new ArrayList<>();

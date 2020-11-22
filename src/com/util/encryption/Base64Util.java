@@ -14,7 +14,7 @@ public class Base64Util {
      * @param raw
      * @return java.lang.String
      * @author 唐小甫
-     * @datetime 2020/11/21 23:31
+     * @datetime 2020-11-21 23:31:49
      */
     public static String encode(String raw){
         return Base64.getEncoder().encodeToString(raw.getBytes());
@@ -26,7 +26,7 @@ public class Base64Util {
      * @param bytes
      * @return java.lang.String
      * @author 唐小甫
-     * @datetime 2020/11/22 0:00
+     * @datetime 2020-11-22 00:00:49
      */
     public static String encode(byte[] bytes) {
         return Base64.getEncoder().encodeToString(bytes);
@@ -38,7 +38,7 @@ public class Base64Util {
      * @param cooked
      * @return java.lang.String
      * @author 唐小甫
-     * @datetime 2020/11/21 23:32
+     * @datetime 2020-11-21 23:32:49
      */
     public static String decode(String cooked) {
         return new String(Base64.getDecoder().decode(cooked));
@@ -50,7 +50,7 @@ public class Base64Util {
      * @param cooked
      * @return java.lang.String
      * @author 唐小甫
-     * @datetime 2020/11/21 23:32
+     * @datetime 2020-11-21 23:32:49
      */
     public static byte[] decode(byte[] cooked) {
         return Base64.getDecoder().decode(cooked);

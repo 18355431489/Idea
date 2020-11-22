@@ -15,7 +15,7 @@ public class JavaTypeUtil {
      * @param t
      * @return com.util.json.JavaTypeUtil.TypeEnum
      * @author 唐小甫
-     * @datetime 2020/11/22 21:34
+     * @datetime 2020-11-22 21:34:49
      */
     public static <T> TypeEnum getClassType(T t) {
         if (t == null) {
@@ -60,7 +60,7 @@ public class JavaTypeUtil {
      * @param t
      * @return com.util.json.JavaTypeUtil.TypeEnum
      * @author 唐小甫
-     * @datetime 2020/11/22 21:36
+     * @datetime 2020-11-22 21:36:49
      */
     public static <T> TypeEnum getDeclaredClassType(T t) {
         if (t == null) {
@@ -105,7 +105,7 @@ public class JavaTypeUtil {
      * @param t
      * @return com.util.json.JavaTypeUtil.TypeEnum
      * @author 唐小甫
-     * @datetime 2020/11/22 22:11
+     * @datetime 2020-11-22 22:11:49
      */
     public static <T> TypeEnum getComplexClassType(T t) {
         if (t instanceof Collection) {
@@ -176,7 +176,7 @@ public class JavaTypeUtil {
     /**
      * Java类型枚举
      * @author 唐小甫
-     * @datetime 2020/11/22 21:27
+     * @datetime 2020-11-22 21:27:49
      */
     enum TypeEnum {
         /** 简单类型 */

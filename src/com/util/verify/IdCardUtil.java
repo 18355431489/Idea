@@ -44,7 +44,7 @@ public class IdCardUtil {
      * @param idNo
      * @return int[]
      * @author 唐小甫
-     * @datetime 2020/11/22 21:04
+     * @datetime 2020-11-22 21:04:49
      */
     public static int[] getIdCardInt(String idNo) {
         validateIdCardBefore(idNo);
@@ -62,7 +62,7 @@ public class IdCardUtil {
      * @param idNoChars
      * @return int[]
      * @author 唐小甫
-     * @datetime 2020/11/22 21:04
+     * @datetime 2020-11-22 21:04:49
      */
     public static int[] getIdCardInt(char[] idNoChars) {
         validateIdCardBefore(String.copyValueOf(idNoChars));
@@ -79,7 +79,7 @@ public class IdCardUtil {
      * @param idNo
      * @return int
      * @author 唐小甫
-     * @datetime 2020/11/22 21:05
+     * @datetime 2020-11-22 21:05:49
      */
     public static int getYearByIdCard(String idNo) {
         validateIdCardBefore(idNo);
@@ -92,7 +92,7 @@ public class IdCardUtil {
      * @param idNo
      * @return int
      * @author 唐小甫
-     * @datetime 2020/11/22 21:05
+     * @datetime 2020-11-22 21:05:49
      */
     public static int getMonthByIdCard(String idNo) {
         validateIdCardBefore(idNo);
@@ -105,7 +105,7 @@ public class IdCardUtil {
      * @param idNo
      * @return int
      * @author 唐小甫
-     * @datetime 2020/11/22 21:06
+     * @datetime 2020-11-22 21:06:49
      */
     public static int getDayByIdCard(String idNo) {
         validateIdCardBefore(idNo);
@@ -119,7 +119,7 @@ public class IdCardUtil {
      * @param day
      * @return boolean
      * @author 唐小甫
-     * @datetime 2020/11/20 17:39
+     * @datetime 2020-11-20 17:39:49
      */
     public static boolean validateBorn(int year, int month, int day) {
         Calendar instance = Calendar.getInstance();
@@ -135,7 +135,7 @@ public class IdCardUtil {
      * @param idNo
      * @return boolean
      * @author 唐小甫
-     * @datetime 2020/11/22 21:07
+     * @datetime 2020-11-22 21:07:49
      */
     public static boolean validateIdCardBefore(String idNo) {
         if (idNo == null || idNo.length() == 0) {
@@ -174,7 +174,7 @@ public class IdCardUtil {
      * @param idNo
      * @return boolean
      * @author 唐小甫
-     * @datetime 2020/11/22 21:07
+     * @datetime 2020-11-22 21:07:49
      */
     public static boolean validateIdCard18(String idNo) {
         int[] idCardInts = getIdCardInt(idNo);

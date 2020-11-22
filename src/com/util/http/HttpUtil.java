@@ -53,7 +53,7 @@ public class HttpUtil {
      * @param params
      * @return java.lang.String
      * @author 唐小甫
-     * @datetime 2020/11/22 17:51
+     * @datetime 2020-11-22 17:51:49
      */
     public String sendGet(String baseUrl, HashMap<String, Object> params) throws IOException {
         String url = baseUrl + "?";
@@ -76,7 +76,7 @@ public class HttpUtil {
      * @param params
      * @return java.lang.String
      * @author 唐小甫
-     * @datetime 2020/11/22 17:54
+     * @datetime 2020-11-22 17:54:49
      */
     public String sendPost(String baseUrl, HashMap<String, Object> params) throws IOException {
         FormBody.Builder builder = new FormBody.Builder();
@@ -105,7 +105,7 @@ public class HttpUtil {
      * @return java.lang.String
      * @throws IOException
      * @author 唐小甫
-     * @datetime 2020/11/22 18:02
+     * @datetime 2020-11-22 18:02:49
      */
     public static String sendGETRequest(String path, Map<String, Object> params, String encoding) throws IOException {
         StringBuilder url = new StringBuilder(path);
@@ -131,7 +131,7 @@ public class HttpUtil {
      * @return java.lang.String
      * @throws IOException
      * @author 唐小甫
-     * @datetime 2020/11/22 18:00
+     * @datetime 2020-11-22 18:00:49
      */
     public static String sendPOSTRequest(String url, Map<String, Object> params, String encoding) throws IOException {
         StringBuilder data = new StringBuilder();
@@ -163,7 +163,7 @@ public class HttpUtil {
      * @return java.lang.StringBuilder
      * @throws UnsupportedEncodingException
      * @author 唐小甫
-     * @datetime 2020/11/22 17:58
+     * @datetime 2020-11-22 17:58:49
      */
     private static StringBuilder getParameterBuilder(Map<String, Object> params, String encoding) throws UnsupportedEncodingException {
         StringBuilder data = new StringBuilder();
@@ -184,7 +184,7 @@ public class HttpUtil {
      * @return java.lang.String
      * @throws IOException
      * @author 唐小甫
-     * @datetime 2020/11/22 17:55
+     * @datetime 2020-11-22 17:55:49
      */
     private static String getResponseText(HttpURLConnection conn) throws IOException {
         InputStream is = conn.getInputStream();
