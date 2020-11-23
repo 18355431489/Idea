@@ -113,36 +113,9 @@ public class ResponseUtil {
 	public static String getContentType(String fileName){
 		//文件名后缀
 		String fileExtension = fileName.substring(fileName.lastIndexOf("."));
-		if(".bmp".equalsIgnoreCase(fileExtension)) {
-			return "image/bmp";
+		if (fileExtension == null || fileExtension.isEmpty()) {
+		    return ContentType.getContentTypeMap().get(".*");
 		}
-		if(".gif".equalsIgnoreCase(fileExtension)) {
-			return "image/gif";
-		}
-		if(".jpeg".equalsIgnoreCase(fileExtension) || ".jpg".equalsIgnoreCase(fileExtension)  || ".png".equalsIgnoreCase(fileExtension) ){
-			return "image/jpeg";
-		}
-		if(".html".equalsIgnoreCase(fileExtension)){
-			return "text/html";
-		}
-		if(".txt".equalsIgnoreCase(fileExtension)){
-			return "text/plain";
-		}
-		if(".vsd".equalsIgnoreCase(fileExtension)){
-			return "application/vnd.visio";
-		}
-		if(".ppt".equalsIgnoreCase(fileExtension) || ".pptx".equalsIgnoreCase(fileExtension)) {
-			return "application/vnd.ms-powerpoint";
-		}
-		if(".doc".equalsIgnoreCase(fileExtension) || ".docx".equalsIgnoreCase(fileExtension)) {
-			return "application/msword";
-		}
-		if (".pdf".equalsIgnoreCase(fileExtension)) {
-			return "application/pdf";
-		}
-		if(".xml".equalsIgnoreCase(fileExtension)) {
-			return "text/xml";
-		}
-		return "image/jpeg";
+		return ContentType.getContentTypeMap().get(fileExtension.toLowerCase());
 	}
 }

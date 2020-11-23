@@ -18,7 +18,7 @@ public class CollectionUtil {
      * @datetime 2020-11-21 15:42:49
      */
     public static boolean isEmpty(Collection<?> collection) {
-        return collection == null || collection.size() == 0;
+        return collection == null || collection.isEmpty();
     }
 
 
@@ -32,7 +32,7 @@ public class CollectionUtil {
      */
     public static String toCollectionFmt(Collection<String> collection, String separator) {
         if (isEmpty(collection)) {
-            return "";
+            return null;
         }
         return collection.stream().collect(Collectors.joining(separator));
     }

@@ -21,7 +21,7 @@ public class StringUtil {
      * @datetime 2020-11-21 14:33:49
      */
     public static boolean isEmpty(String str) {
-        return str == null || str.length() == 0;
+        return str == null || str.isEmpty();
     }
 
 
@@ -37,6 +37,6 @@ public class StringUtil {
             return true;
         }
         str = str.replaceAll(SPACE_STRING, EMPTY_STRING);
-        return str.length() == 0;
+        return str.isEmpty();
     }
 }

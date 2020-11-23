@@ -6,8 +6,9 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * @describe: Java对象类型工具
- * @author 唐兴甫
+ * Java对象类型工具
+ * @author 唐小甫
+ * @datetime 2020-11-23 23:05:08
  */
 public class JavaTypeUtil {
 

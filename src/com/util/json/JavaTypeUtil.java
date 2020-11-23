@@ -1,7 +1,6 @@
 package com.util.json;
 
 import java.util.*;
-import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
  * java类型工具类
@@ -49,7 +48,7 @@ public class JavaTypeUtil {
             return TypeEnum.SIMPLE_TYPE;
         }
         if (t instanceof Date) {
-            return TypeEnum.SIMPLE_TYPE;
+            return TypeEnum.DATE_TYPE;
         }
         return getComplexClassType(t);
     }
@@ -102,12 +101,14 @@ public class JavaTypeUtil {
 
     /**
      * 复杂对象类型
+     * @param <T>
      * @param t
-     * @return com.util.json.JavaTypeUtil.TypeEnum
+     * @return TypeEnum
      * @author 唐小甫
-     * @datetime 2020-11-22 22:11:49
+     * @datetime 2020-11-23 22:59:15
      */
     public static <T> TypeEnum getComplexClassType(T t) {
+        
         if (t instanceof Collection) {
             return TypeEnum.COLLECTION_TYPE;
         }
@@ -122,11 +123,14 @@ public class JavaTypeUtil {
 
 
     /**
-     * @describe: 根据简写类型名称返回对象类型
+     * 根据简写类型名称返回对象类型
      * @param typeName
-     * @return
+     * @return TypeEnum
+     * @author 唐小甫
+     * @datetime 2020-11-23 22:59:41
      */
     public static TypeEnum getDeclaredClassTypeByTypeName(String typeName) {
+        
         if (typeName == null) {
             return TypeEnum.NULL_TYPE;
         }
@@ -211,62 +215,5 @@ public class JavaTypeUtil {
         OBJECT_TYPE,
         /** 空类型 */
         NULL_TYPE;
-    }
-
-    public static void main(String[] args) {
-        byte a = 1;
-        short b = 1;
-        int c = 1;
-        long d = 1;
-        float e = 1;
-        double f = 1;
-        boolean g = false;
-        boolean h = true;
-        char i = 'a';
-        String j = null;
-        String k = "";
-        Date l = new Date();
-        List<Object> m = new ArrayList<>();
-        Set<Object> n = new HashSet<>();
-        Map<Object, Object> o = new HashMap<>();
-        Object p = new Object();
-        Stack<Object> q = new Stack<>();
-        Queue<Object> r = new ConcurrentLinkedQueue<>();
-        Integer[] s = new Integer[50];
-        List<Object>[] t = new ArrayList[50];
-        Collection<Object> u = new ArrayList();
-
-        List<Object> list = new ArrayList<>();
-
-        list.add(a);
-        list.add(b);
-        list.add(c);
-        list.add(d);
-        list.add(e);
-        list.add(f);
-        list.add(g);
-        list.add(h);
-        list.add(i);
-        list.add(j);
-        list.add(k);
-        list.add(l);
-        list.add(m);
-        list.add(n);
-        list.add(o);
-        list.add(p);
-        list.add(q);
-        list.add(r);
-        list.add(s);
-        list.add(t);
-        list.add(u);
-//        for (Object o1 : list) {
-//            System.out.println(o1.getClass().getTypeName());
-//        }
-
-        Iterator<Object> iterator = list.iterator();
-        while (iterator.hasNext()) {
-            Object next = iterator.next();
-            System.out.println(getDeclaredClassType(next));
-        }
     }
 }
