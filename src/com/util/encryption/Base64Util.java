@@ -10,7 +10,7 @@ import java.util.Base64;
 public class Base64Util {
 
     /**
-     * 文本加密
+     * 字符串加密
      * @param raw
      * @return java.lang.String
      * @author 唐小甫
@@ -22,7 +22,7 @@ public class Base64Util {
 
 
     /**
-     * 媒体加密
+     * 字节数组加密
      * @param bytes
      * @return java.lang.String
      * @author 唐小甫
@@ -34,7 +34,7 @@ public class Base64Util {
 
 
     /**
-     * 文本解密
+     * 字符串解密
      * @param cooked
      * @return java.lang.String
      * @author 唐小甫
@@ -46,7 +46,7 @@ public class Base64Util {
 
 
     /**
-     * 媒体解密
+     * 字节数组解密
      * @param cooked
      * @return java.lang.String
      * @author 唐小甫

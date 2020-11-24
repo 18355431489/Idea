@@ -21,7 +21,7 @@ public class StringUtil {
      * @datetime 2020-11-21 14:33:49
      */
     public static boolean isEmpty(String str) {
-        return str == null || str.isEmpty();
+        return str == null || str.length() == 0;
     }
 
 

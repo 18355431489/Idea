@@ -18,7 +18,7 @@ public class CollectionUtil {
      * @datetime 2020-11-21 15:42:49
      */
     public static boolean isEmpty(Collection<?> collection) {
-        return collection == null || collection.isEmpty();
+        return collection == null || collection.size() == 0;
     }
 
 
