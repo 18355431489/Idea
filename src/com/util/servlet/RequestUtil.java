@@ -119,34 +119,34 @@ public class RequestUtil {
 	 */
 	private static <T> Boolean simpleInjection(T instance, String simpleName, Method setMethod, Object value) throws Exception {
 		switch (JavaTypeUtil.getDeclaredClassTypeByTypeName(simpleName)) {
-		case STRINGTYPE:
+		case STRING_TYPE:
 			setMethod.invoke(instance, value.toString());
 			break;
-		case BYTETYPE:
+		case BYTE_TYPE:
 			setMethod.invoke(instance, Byte.valueOf(value.toString()));
 			break;
-		case SHORTTYPE:
+		case SHORT_TYPE:
 			setMethod.invoke(instance, Short.valueOf(value.toString()));
 			break;
-		case INTEGERTYPE:
+		case INTEGER_TYPE:
 			setMethod.invoke(instance, Integer.valueOf(value.toString()));
 			break;
-		case LONGTYPE:
+		case LONG_TYPE:
 			setMethod.invoke(instance, Long.valueOf(value.toString()));
 			break;
-		case FLOATTYPE:
+		case FLOAT_TYPE:
 			setMethod.invoke(instance, Float.valueOf(value.toString()));
 			break;
-		case DOUBLETYPE:
+		case DOUBLE_TYPE:
 			setMethod.invoke(instance, Double.valueOf(value.toString()));
 			break;
-		case CHARACTERTYPE:
+		case CHARACTER_TYPE:
 			setMethod.invoke(instance, value.toString().charAt(0));
 			break;
-		case BOOLEANTYPE:
+		case BOOLEAN_TYPE:
 			setMethod.invoke(instance, Boolean.valueOf(value.toString()));
 			break;
-		case DATETYPE:
+		case DATE_TYPE:
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS");
 			setMethod.invoke(instance, sdf.parse(value.toString()));
 			break;

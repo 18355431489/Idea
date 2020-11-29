@@ -1,7 +1,5 @@
 package com.util.email;
 
-import com.util.encryption.Base64Util;
-
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
@@ -11,6 +9,7 @@ import javax.mail.internet.MimeMessage;
 import java.io.UnsupportedEncodingException;
 import java.net.Inet4Address;
 import java.net.UnknownHostException;
+import java.util.Base64;
 import java.util.Date;
 import java.util.Map;
 import java.util.Properties;
@@ -68,8 +67,8 @@ public class EmailUtil {
 
             //设置邮件内容
             String ip = Inet4Address.getLocalHost().getHostAddress();
-            String url = "http://" + ip + ":8080/mishop/user?method=active&c=" + Base64Util.encode(user.get("username"))
-                    + "&e=" + user.get("code");
+            String encodeUsername = Base64.getEncoder().encodeToString(user.get("username").toString().getBytes("UTF-8"));
+            String url = "http://" + ip + ":8080/mishop/user?method=active&c=" + encodeUsername + "&e=" + user.get("code");
 
             message.setContent(user.get("username") + ", 你好<br>欢迎注册小米商城！请点击链接进行激活：<a href='"
                     + url + "'>" + url + "</a>", "text/html;charset=utf-8");
