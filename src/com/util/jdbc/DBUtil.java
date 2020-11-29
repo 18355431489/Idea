@@ -195,7 +195,7 @@ public class DBUtil {
      * @return: void
      */
     private static void beforeOption(String sql, Object... params) throws SQLException {
-        pstmt = JdbcUtils.getConnection().prepareStatement(sql);
+        pstmt = JdbcUtil.getConnection().prepareStatement(sql);
         for (int i = 0; i < params.length; i++) {
             pstmt.setObject(i + 1, params[i]);
         }
@@ -214,7 +214,7 @@ public class DBUtil {
             if (pstmt != null) {
                 pstmt.close();
             }
-			JdbcUtils.closeConnection();
+			JdbcUtil.closeConnection();
         } catch (SQLException e) {
             e.printStackTrace();
         }

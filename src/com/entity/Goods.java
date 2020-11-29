@@ -20,11 +20,13 @@ public class Goods {
 
     private Integer goodstypeuuid;
     
-    
-
     public Goods() {
+        
+    }
+
+    public Goods(String name) {
         this.uuid = 8432175391734252L;
-        this.name = "三鹿奶粉";
+        this.name = name;
         this.origin = "西江内蒙古呼伦贝尔大草原";
         this.producer = "三鹿集团有限公司";
         this.unit = "婴儿奶粉";

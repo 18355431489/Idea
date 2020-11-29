@@ -25,7 +25,7 @@ public class QueryRunnerDBUtil {
 	 */
 	public static int executeUpdate(String sql, Object... params) {
 		try {
-			return queryRunner.update(JdbcUtils.getConnection(), sql, params);
+			return queryRunner.update(JdbcUtil.getConnection(), sql, params);
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return 0;
@@ -44,7 +44,7 @@ public class QueryRunnerDBUtil {
 	public static <T> List<T> executeQueryList(String sql, Class<T> clazz, Object... params) {
 		try {
 			BeanListHandler<T> beanListHandler = new BeanListHandler<T>(clazz);
-			return queryRunner.query(JdbcUtils.getConnection(), sql, beanListHandler, params);
+			return queryRunner.query(JdbcUtil.getConnection(), sql, beanListHandler, params);
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return null;
@@ -62,7 +62,7 @@ public class QueryRunnerDBUtil {
 	public static <T> T executeQueryObject(String sql, Class<T> clazz, Object... params) {
 		try {
 			BeanHandler<T> beanHandler = new BeanHandler<T>(clazz);
-			return queryRunner.query(JdbcUtils.getConnection(), sql, beanHandler, params);
+			return queryRunner.query(JdbcUtil.getConnection(), sql, beanHandler, params);
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return null;
@@ -80,7 +80,7 @@ public class QueryRunnerDBUtil {
 	public static <T> T executeQueryScalar(String sql, Object ... params) {
 		try {
 			ScalarHandler<T> scalarHandler = new ScalarHandler<T>();
-			return queryRunner.query(JdbcUtils.getConnection(), sql, scalarHandler, params);
+			return queryRunner.query(JdbcUtil.getConnection(), sql, scalarHandler, params);
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return null;
@@ -97,7 +97,7 @@ public class QueryRunnerDBUtil {
 	public static Map<String, Object> executeQueryMap(String sql, Object ... params) {
 		try {
 			MapHandler mapHandler = new MapHandler();
-			return queryRunner.query(JdbcUtils.getConnection(), sql, mapHandler, params);
+			return queryRunner.query(JdbcUtil.getConnection(), sql, mapHandler, params);
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return null;
@@ -114,7 +114,7 @@ public class QueryRunnerDBUtil {
 	public static List<Map<String,Object>> executeQueryListMap(String sql, Object ... params) {
 		try {
 			MapListHandler mapListHandler = new MapListHandler();
-			return queryRunner.query(JdbcUtils.getConnection(), sql, mapListHandler, params);
+			return queryRunner.query(JdbcUtil.getConnection(), sql, mapListHandler, params);
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return null;

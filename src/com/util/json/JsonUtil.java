@@ -1,8 +1,11 @@
 package com.util.json;
 
-import com.entity.Goods;
-import com.entity.GoodsParent;
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -23,6 +26,10 @@ public class JsonUtil {
      */
     public static <T> String toJsonString(T t) {
         ObjectMapper objectMapper = new ObjectMapper();
+        // 获取成员值时设置可见性
+        objectMapper.setVisibility(PropertyAccessor.FIELD, Visibility.ANY);
+        objectMapper.setVisibility(PropertyAccessor.GETTER, Visibility.ANY);
+        objectMapper.setVisibility(PropertyAccessor.IS_GETTER, Visibility.ANY);
         try {
             return objectMapper.writeValueAsString(t);
         } catch (JsonProcessingException e) {
@@ -43,7 +50,12 @@ public class JsonUtil {
      * @datetime 2020-11-26 21:05:19
      */
     public static <T> T jsonString2Object(String json, Class<T> clazz) {
-        ObjectMapper objectMapper = new ObjectMapper();
+        // JSON工厂对象设置属性兼容单引号
+        JsonFactory jsonFactory = new JsonFactory();
+        jsonFactory.enable(JsonParser.Feature.ALLOW_SINGLE_QUOTES);
+        ObjectMapper objectMapper = new ObjectMapper(jsonFactory);
+        // JSON多余属性不做处理
+        objectMapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
         try {
             return objectMapper.readValue(json, clazz);
         } catch (JsonMappingException e) {
@@ -67,18 +79,5 @@ public class JsonUtil {
     public static <T> T objectTrans4(Object object, Class<T> clazz) {
         String json = toJsonString(object);
         return jsonString2Object(json, clazz);
-    }
-    
-    
-    public static void main(String[] args) {
-//        Goods goods = new Goods();
-//        goods.setName("正宗三鹿奶粉");
-//        String json = toJsonString(goods);
-////        System.out.println(jsonString2Object(json, Goods.class));
-//        System.out.println(objectTrans4(goods, GoodsParent.class));
-        GoodsParent goodsParent = new GoodsParent();
-        System.out.println(goodsParent);
-        System.out.println(toJsonString(goodsParent));
-        System.out.println(objectTrans4(goodsParent, Goods.class));
     }
 }

@@ -10,10 +10,13 @@ public class GoodsParent {
     private Long uuid;
     
     private String name;
-
+    
     public GoodsParent() {
+    }
+
+    public GoodsParent(String name) {
         this.uuid = 7589265912375L;
-        this.name = "刘德华";
+        this.name = name;
     }
 
     public Long getUuid() {

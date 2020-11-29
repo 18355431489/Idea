@@ -10,7 +10,7 @@ import java.sql.SQLException;
  * @datetime: 2020-05-14 12:42:38
  * @version: 1.0
  */
-public class JdbcUtils {
+public class JdbcUtil {
 
     private static final String DRIVER_CLASSNAME = "com.mysql.jdbc.Driver";
     private static final String JDBCURL = "jdbc:mysql://localhost:3306/storehouse";

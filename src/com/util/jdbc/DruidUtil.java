@@ -12,7 +12,7 @@ import java.util.Properties;
   * @author 唐小甫
   * @datetime 2020/11/21 13:10
  */
-public class DruidUtils {
+public class DruidUtil {
 
     private static DruidDataSource dataSource = null;
 
@@ -21,7 +21,7 @@ public class DruidUtils {
     static {
         //创建流
         try {
-            InputStream is = DruidUtils.class.getClassLoader().getResourceAsStream("db.properties");
+            InputStream is = DruidUtil.class.getClassLoader().getResourceAsStream("db.properties");
             Properties properties = new Properties();
             properties.load(is);
             dataSource = (DruidDataSource) DruidDataSourceFactory.createDataSource(properties);
