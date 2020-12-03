@@ -1,6 +1,8 @@
 package com.entity;
 
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Goods {
     
@@ -20,6 +22,8 @@ public class Goods {
 
     private Integer goodstypeuuid;
     
+    private Date productDate;
+    
     public Goods() {
         
     }
@@ -33,6 +37,7 @@ public class Goods {
         this.inprice = new BigDecimal("2658648932845433");
         this.outprice = new BigDecimal("32644689085455791437");
         this.goodstypeuuid = 92760175;
+        this.productDate = new Date();
     }
 
     public Long getUuid() {
@@ -98,6 +103,15 @@ public class Goods {
     public void setGoodstypeuuid(Integer goodstypeuuid) {
         this.goodstypeuuid = goodstypeuuid;
     }
+    
+    public String getProductDate() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return productDate == null ? null : sdf.format(productDate);
+    }
+
+    public void setProductDate(Date productDate) {
+        this.productDate = productDate;
+    }
 
     @Override
     public String toString() {
@@ -109,6 +123,7 @@ public class Goods {
                 + ", inprice=" + inprice
                 + ", outprice=" + outprice
                 + ", goodstypeuuid=" + goodstypeuuid
+                + ", productDate=" + productDate
                 + "]";
     }
     
