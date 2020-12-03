@@ -13,7 +13,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 /**
- * 
+ * OkHttp工具类
  * @author 唐小甫
  * @datetime: 2020-12-03 22:04:10
  */
@@ -23,6 +23,8 @@ public class OkHttpUtil {
 
     /** 可变长度字符编码 */
     public static final String ENCODING = "UTF-8";
+
+    public static final String MEDIA_TYPE_JSON = "APPLICATION/JSON; CHARSET=UTF-8";
 
     
 //    @SuppressWarnings("unchecked")
@@ -116,7 +118,7 @@ public class OkHttpUtil {
             requestHeader.entrySet().forEach(entry -> 
                 reqBuilder.addHeader(entry.getKey(), entry.getValue()));
         }
-        MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+        MediaType JSON = MediaType.parse(MEDIA_TYPE_JSON);
         RequestBody requestBody = RequestBody.create(json, JSON);
         Request request = reqBuilder.url(baseUrl).method(method, requestBody).build();
         Response response = client.newCall(request).execute();
