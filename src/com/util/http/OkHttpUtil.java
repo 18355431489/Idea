@@ -26,19 +26,6 @@ public class OkHttpUtil {
 
     public static final String MEDIA_TYPE_JSON = "APPLICATION/JSON; CHARSET=UTF-8";
 
-    
-//    @SuppressWarnings("unchecked")
-//    public static void main(String[] args) throws IOException {
-//        String base_url = "http://localhost:8080/http/put/20201201/230730";
-//        Goods goods = new Goods("宇智波斑");
-//        Map<String, Object> params = JsonUtil.objectTrans4(goods, Map.class);
-//        Map<String, String> requestHeader = new HashMap<String, String>(16);
-//        requestHeader.put("appId", "5a8463bc846e487f543a8c");
-//        requestHeader.put("timestamp", "3996582541565");
-//        requestHeader.put("sign", "KGJLOXIWQGRKMRT");
-//        System.out.println(sendJson(base_url, JsonUtil.toJsonString(goods), requestHeader, "PUT"));
-//    }
-
 
     /**
      * 发送GET请求

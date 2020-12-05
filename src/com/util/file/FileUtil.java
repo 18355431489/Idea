@@ -43,7 +43,7 @@ public class FileUtil {
         });
         return files;
     }
-
+    
 
     /**
      * 递归删除文件/文件夹
@@ -66,8 +66,9 @@ public class FileUtil {
         for (File childFile : files) {
             deleteFile(childFile.getPath());
         }
+        file.delete();
     }
-
+    
 
     /**
      * 文件压缩（不包含目录）

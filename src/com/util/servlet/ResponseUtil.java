@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.Writer;
-import java.net.URLEncoder;
 import javax.servlet.http.HttpServletResponse;
 
 /**
@@ -24,8 +23,14 @@ public class ResponseUtil {
     
     /** UTF-8编码 */
     public static final String ENCODING_UTF8            = "UTF-8";
+    /** GBK编码 */
+    public static final String ENCODING_GBK             = "GBK";
+    /** ISO-8859-1编码 */
+    public static final String ENCODING_ISO_8859_1      = "ISO-8859-1";
     /** 字符编码UTF8 */
     public static final String CHARSET_UTF8             = ";CHARSET=UTF-8";
+    /** 字符编码GBK */
+    public static final String CHARSET_GBK              = ";CHARSET=GBK";
     /** JSON类型 */
     public static final String APPLICATION_JSON         = "APPLICATION/JSON";
     /** UTF8编码格式的JSON类型 */
@@ -82,6 +87,7 @@ public class ResponseUtil {
 	
 	/**
 	 * 在线打开文件
+	 * 注意：纯文本文件中汉字字符会出现乱码
 	 * @param resp
 	 * @param file
 	 * @author 唐小甫
@@ -104,13 +110,15 @@ public class ResponseUtil {
 	 */
 	public static void responseFile(HttpServletResponse resp, File file, String cd) {
 		try {
-			String fileName = URLEncoder.encode(file.getName(), ENCODING_UTF8);
+			String fileName = new String(file.getName().getBytes(ENCODING_GBK), ENCODING_ISO_8859_1);
 			resp.setHeader(RESPONSE_HEADER_PRAGMA, NO_CACHE);
             resp.setHeader(RESPONSE_HEADER_CACHE_CONTROLLER, NO_CACHE);
             resp.setDateHeader(RESPONSE_DATE_HEADER_EXPIRES, 0);
 			//设置响应头控制浏览器以下载的形式打开文件
 			resp.setHeader(RESPONSE_HEADER_CONTENT_DISPOSITION, cd + fileName);
-			resp.setContentType(getContentType(file.getName()) + CHARSET_UTF8);
+			String contentType = getContentType(file.getName());
+            contentType += ContentType.TXT.getType().equals(contentType) ? CHARSET_GBK : CHARSET_UTF8;
+            resp.setContentType(contentType);
 			InputStream in = new FileInputStream(file);
 			int count = 0;
 			byte[] b = new byte[1024];

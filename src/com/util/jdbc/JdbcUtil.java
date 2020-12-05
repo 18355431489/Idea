@@ -4,16 +4,16 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+
 /**
- * @author: 唐小甫
- * @describe: JDBC工具
- * @datetime: 2020-05-14 12:42:38
- * @version: 1.0
+ * JDBC工具类
+ * @author 唐小甫
+ * @datetime 2020-12-05 23:17:20
  */
 public class JdbcUtil {
 
     private static final String DRIVER_CLASSNAME = "com.mysql.jdbc.Driver";
-    private static final String JDBCURL = "jdbc:mysql://localhost:3306/storehouse";
+    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/tem";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "1234";
 
@@ -21,7 +21,9 @@ public class JdbcUtil {
 
     
     /**
-     * @describe: 配置信息初始化
+     * 配置信息初始化
+     * @author 唐小甫
+     * @datetime 2020-12-05 23:17:20
      */
     static {
         try {
@@ -34,14 +36,16 @@ public class JdbcUtil {
 
     
     /**
-     * @describe: 获取连接
-     * @return
+     * 获取连接
+     * @return Connection
      * @throws SQLException
+     * @author 唐小甫
+     * @datetime 2020-12-05 23:18:32
      */
     public static Connection getConnection() throws SQLException {
         Connection conn = threadLocal.get();
         if (conn == null) {
-            conn = DriverManager.getConnection(JDBCURL, USERNAME, PASSWORD);
+            conn = DriverManager.getConnection(JDBC_URL, USERNAME, PASSWORD);
             threadLocal.set(conn);
         }
         return conn;
@@ -49,39 +53,46 @@ public class JdbcUtil {
 
     
     /**
-     * @describe: 关闭连接
+     * 开启事务：事务关闭自动提交
      * @throws SQLException
+     * @author 唐小甫
+     * @datetime 2020-12-05 23:09:41
      */
-    public static void closeConnection() throws SQLException {
-        getConnection().close();
-        threadLocal.remove();
+    public static void beginTransaction() throws SQLException {
+        getConnection().setAutoCommit(false);
     }
 
-    
-    /**
-     * @describe: 设置自动提交事务 true/false
-     * @param autoCommit
-     * @throws SQLException
-     */
-    public static void setAutoCommit(Boolean autoCommit) throws SQLException {
-        getConnection().setAutoCommit(autoCommit);
-    }
 
-    
     /**
-     * @describe: 事务回滚
+     * 事务提交
      * @throws SQLException
-     */
-    public static void rollBack() throws SQLException {
-        getConnection().rollback();
-    }
-
-    
-    /**
-     * @describe: 事务提交
-     * @throws SQLException
+     * @author 唐小甫
+     * @datetime 2020-12-05 23:10:22
      */
     public static void commit() throws SQLException {
         getConnection().commit();
+    }
+
+
+    /**
+     * 事务回滚
+     * @throws SQLException
+     * @author 唐小甫
+     * @datetime 2020-12-05 23:10:46
+     */
+    public static void roolback() throws SQLException {
+        getConnection().rollback();
+    }
+
+
+    /**
+     * 关闭连接
+     * @throws SQLException
+     * @author 唐小甫
+     * @datetime 2020-12-05 23:11:57
+     */
+    public static void close() throws SQLException {
+        getConnection().close();
+        threadLocal.remove();
     }
 }

@@ -10,47 +10,52 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author: 唐小甫
- * @describe: 查询结果映射工具
- * @datetime: 2020-05-14 14:49:40
- * @version: 1.0
+ * 查询结果映射工具
+ * @author 唐小甫
+ * @datetime 2020-12-06 00:02:29
  */
 public class MapperUtil {
 
+
     /**
-     * @describe: 操作结果集，返回基本类型数据
+     * 操作结果集，返回基本类型数据
      * @param <T>
-     * @param set
-     * @return
+     * @param resultSet
+     * @return T
+     * @author 唐小甫
+     * @datetime 2020-12-05 23:35:46
      */
     @SuppressWarnings({ "unchecked" })
-    public static <T> T rowMapperSimple(ResultSet set) {
+    public static <T> T rowMapperSimple(ResultSet resultSet) {
         try {
-            return (T) set.getObject(1);
+            return (T) resultSet.getObject(1);
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
         }
     }
 
+
     /**
-     * @describe: 利用反射操作结果集，封装到自定义对象
+     * 利用反射操作结果集，封装到自定义对象
      * @param <T>
-     * @param set
+     * @param resultSet
      * @param clazz
-     * @return
+     * @return T
+     * @author 唐小甫
+     * @datetime 2020-12-05 23:35:29
      */
-    public static <T> T rowMapperObject(ResultSet set, Class<T> clazz) {
+    public static <T> T rowMapperObject(ResultSet resultSet, Class<T> clazz) {
         try {
             Constructor<T> constructor = clazz.getConstructor();
             T instance = constructor.newInstance();
             Method[] methods = clazz.getMethods();
-            // 获取列集
-            ResultSetMetaData metaData = set.getMetaData();
-            // 获取列数
+            // 获取结果集字段集合
+            ResultSetMetaData metaData = resultSet.getMetaData();
+            // 获取结果集字段数量
             int columnCount = metaData.getColumnCount();
             for (int i = 0; i < columnCount; i++) {
-                dependencyInjection(instance, methods, set, metaData.getColumnLabel(i + 1), i + 1);
+                dependencyInjection(instance, methods, resultSet, metaData.getColumnLabel(i + 1), i + 1);
             }
             return instance;
         } catch (Exception e) {
@@ -59,21 +64,24 @@ public class MapperUtil {
         }
     }
 
+
     /**
-     * @describe: 操作结果集到封装Map
-     * @param set
-     * @return
+     * 操作结果集到封装Map
+     * @param resultSet
+     * @return Map<String,Object>
+     * @author 唐小甫
+     * @datetime 2020-12-05 23:35:13
      */
-    public static Map<String, Object> rowMapperMap(ResultSet set) {
+    public static Map<String, Object> rowMapperMap(ResultSet resultSet) {
         try {
             Map<String, Object> map = new HashMap<String, Object>(16);
-            // 获取列集
-            ResultSetMetaData metaData = set.getMetaData();
-            // 获取列数
+            // 获取结果集字段集合
+            ResultSetMetaData metaData = resultSet.getMetaData();
+            // 获取结果集字段数量
             int columnCount = metaData.getColumnCount();
             for (int i = 0; i < columnCount; i++) {
                 String columnName = metaData.getColumnLabel(i + 1);
-                Object columnValue = set.getObject(i + 1);
+                Object columnValue = resultSet.getObject(i + 1);
                 map.put(MapperUtil.sqlNameTohumpName(columnName), columnValue);
             }
             return map;
@@ -83,20 +91,23 @@ public class MapperUtil {
         }
     }
 
+
     /**
-     * @describe: 依赖注入
+     * 依赖注入
+     * @param <T>
      * @param instance
      * @param methods
-     * @param set
+     * @param resultSet
      * @param columnName
      * @param columnId
-     * @param <T>
      * @throws Exception
+     * @author 唐小甫
+     * @datetime 2020-12-05 23:34:53
      */
-    private static <T> void dependencyInjection(T instance, Method[] methods, ResultSet set, String columnName, Integer columnId) throws Exception {
+    private static <T> void dependencyInjection(T instance, Method[] methods, ResultSet resultSet, String columnName, Integer columnId) throws Exception {
         for (Method method : methods) {
             String methodName = method.getName();
-            if (!methodName.startsWith("set")) {
+            if (!methodName.startsWith("resultSet")) {
                 continue;
             }
             String fieldName = MapperUtil.setMethodNameToFieldName(methodName);
@@ -110,18 +121,17 @@ public class MapperUtil {
             }
 			Class<ResultSet> clazz = ResultSet.class;
             Method getMethod = clazz.getMethod("get" + parameterType, int.class);
-            method.invoke(instance, getMethod.invoke(set, columnId));
+            method.invoke(instance, getMethod.invoke(resultSet, columnId));
         }
     }
 
 
-
-
-
     /**
-     * @describe: 驼峰命名转换SQL属性
+     * 驼峰命名转换SQL属性
      * @param name
-     * @return
+     * @return String
+     * @author 唐小甫
+     * @datetime 2020-12-05 23:33:34
      */
     public static String humpNameToSqlName(String name) {
         char ch = name.charAt(0);
@@ -139,9 +149,11 @@ public class MapperUtil {
 
 
     /**
-     * @describe: SQL属性转换驼峰命名
+     * SQL属性转换驼峰命名
      * @param name
-     * @return
+     * @return String
+     * @author 唐小甫
+     * @datetime 2020-12-05 23:33:34
      */
     public static String sqlNameTohumpName(String name) {
         char ch;
@@ -159,9 +171,11 @@ public class MapperUtil {
 
 
     /**
-     * @describe: get/set方法名转换成员名
+     * get/set方法名转换成员名
      * @param methodName
-     * @return
+     * @return String
+     * @author 唐小甫
+     * @datetime 2020-12-05 23:33:34
      */
     public static String setMethodNameToFieldName(String methodName) {
         String fieldName = methodName.substring(3);
@@ -171,19 +185,23 @@ public class MapperUtil {
 
 
     /**
-     * @describe: 属性名转set方法名
+     * 属性名转set方法名
      * @param fieldName
-     * @return
+     * @return String
+     * @author 唐小甫
+     * @datetime 2020-12-05 23:33:34
      */
     public static String fieldNameToSetMethodName(String fieldName) {
-        return fieldNameToMethodName(fieldName, "set");
+        return fieldNameToMethodName(fieldName, "resultSet");
     }
 
 
     /**
-     * @describe: 属性名转get方法名
+     * 属性名转get方法名
      * @param fieldName
-     * @return
+     * @return String
+     * @author 唐小甫
+     * @datetime 2020-12-05 23:33:34
      */
     public static String fieldNameToGetMethodName(String fieldName) {
         return fieldNameToMethodName(fieldName, "get");
@@ -191,10 +209,12 @@ public class MapperUtil {
 
 
     /**
-     * @describe: 属性名转方法名+方法前缀
+     * 属性名转方法名+方法前缀
      * @param fieldName
      * @param methodPreName
-     * @return
+     * @return String
+     * @author 唐小甫
+     * @datetime 2020-12-05 23:33:34
      */
     public static String fieldNameToMethodName(String fieldName, String methodPreName) {
         char ch = fieldName.charAt(0);

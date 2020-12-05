@@ -1,6 +1,6 @@
-###文件依赖
+#文件依赖
 
-####com.util.emil
+##com.util.emil
 
 + **EmailUtil.java**   
 	*javax.mail-api-1.5.4.jar*
@@ -9,17 +9,17 @@
 
 
 
-####com.util.http
-
-+ **HpptUtil.java**   
+##com.util.http
+	
++ **OkHttpUtil.java**  
 	*okhttp-4.8.0.jar*   
-	*okio.-2.7.0.jar*
+	*okio.-2.7.0.jar*  
 	
 ---
 
 
 
-####com.util.jdbc
+##com.util.jdbc
 
 + **JdbcUtil.java**   
 	*mysql-connector-java-5.0.7.jar*
@@ -45,7 +45,7 @@
 
 
 
-####com.util.json
+##com.util.json
 
 + **JsonUtil.java**   
 	*jackson-core-2.10.0.jar*   
@@ -56,7 +56,7 @@
 
 
 
-####com.util.servlet
+##com.util.servlet
 
 + **CookieUtil.java**   
 	*servlet-api-2.5.jar*
