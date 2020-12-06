@@ -36,6 +36,35 @@ public class DBUtil {
             close(prepareStatement, null);
         }
     }
+    
+    
+    /**
+     * 插入记录返回主键id
+     * @param sql
+     * @param params
+     * @return String
+     * @author 唐小甫
+     * @datetime 2020-12-05 23:23:57
+     */
+    public static long executeSave(String sql, Object... params) {
+        PreparedStatement prepareStatement = null;
+        try {
+            prepareStatement = beforeOption(sql, params);
+            int save = prepareStatement.executeUpdate();
+            if (save > 0) {
+                ResultSet resultSet = prepareStatement.getGeneratedKeys();
+                if (resultSet.next()) {
+                    return resultSet.getLong(1);
+                }
+                return 1;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            close(prepareStatement, null);
+        }
+        return -1;
+    }
 
 
     /**
@@ -246,7 +275,9 @@ public class DBUtil {
             if (prepareStatement != null) {
                 prepareStatement.close();
             }
-			JdbcUtil.close();
+            if (JdbcUtil.getConnection().getAutoCommit()) {
+                JdbcUtil.close();
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.MapHandler;
@@ -37,6 +38,31 @@ public class QueryRunnerDBUtil {
 			return 0;
 		}
 	}
+	
+	
+	/**
+     * 插入操作
+     * @param sql
+     * @param params
+     * @return T
+     * @author 唐小甫
+     * @datetime 2020-12-05 23:12:43
+     */
+    @SuppressWarnings("unchecked")
+    public static <T> T executeSave(String sql, Object... params) {
+        try {
+            ResultSetHandler<T> resultSetHandler = resultSet -> {
+                if (resultSet.next()) {
+                    return (T) resultSet.getObject(1);
+                }
+                return null;
+            };
+            return queryRunner.insert(JdbcUtil.getConnection(), sql, resultSetHandler, params);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
     
     
     /**

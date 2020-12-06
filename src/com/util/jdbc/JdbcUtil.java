@@ -12,9 +12,13 @@ import java.sql.SQLException;
  */
 public class JdbcUtil {
 
+    /** 连接数据库服务 */
     private static final String DRIVER_CLASSNAME = "com.mysql.jdbc.Driver";
+    /** 数据库连接地址 */
     private static final String JDBC_URL = "jdbc:mysql://localhost:3306/tem";
+    /** 数据库用户名 */
     private static final String USERNAME = "root";
+    /** 数据库密码 */
     private static final String PASSWORD = "1234";
 
     private static ThreadLocal<Connection> threadLocal;

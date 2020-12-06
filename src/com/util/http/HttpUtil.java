@@ -12,7 +12,34 @@ import java.util.Map;
 public class HttpUtil {
     
     /** 可变长度字符编码 */
-    public static final String ENCODING = "UTF-8";
+    public static final String ENCODING             = "UTF-8";
+    /** 响应名称 */
+    public static final String CONTENT_TYPE         = "Content-Type";
+    /** 响应长度 */
+    public static final String CONTENT_LENGTH       = "Content-Length";
+    /** json请求格式 */
+    public static final String APPLICATION_JSON     = "application/json";
+    /** 默认请求格式 */
+    public static final String APPLICATION_DEFAULT  = "application/x-www-form-urlencoded";
+    /** GET请求 */
+    public static final String METHOD_GET       = "GET";
+    /** POST请求 */
+    public static final String METHOD_POST      = "POST";
+    /** PATCH请求 */
+    public static final String METHOD_PATCH     = "PATCH";
+    /** PUT请求 */
+    public static final String METHOD_PUT       = "PUT";
+    /** DELETE请求 */
+    public static final String METHOD_DELETE    = "DELETE";
+    /** HEAD请求 */
+    public static final String METHOD_HEAD      = "HEAD";
+    /** OPTIONS请求 */
+    public static final String METHOD_OPTIONS   = "OPTIONS";
+    /** TRACE请求 */
+    public static final String METHOD_TRACE     = "TRACE";
+    /** CONNECT请求 */
+    public static final String METHOD_CONNECT   = "CONNECT";
+    
     
     /**
      * 发送GET请求
@@ -34,7 +61,7 @@ public class HttpUtil {
         HttpURLConnection conn = (HttpURLConnection) new URL(url.toString()).openConnection();
         setRequestHeader(conn, requestHeaderMap);
         conn.setConnectTimeout(5000);
-        conn.setRequestMethod("GET");
+        conn.setRequestMethod(METHOD_GET);
         return getResponseText(conn);
     }
 
@@ -55,7 +82,7 @@ public class HttpUtil {
             data = getParameterBuilder(params);
             data.deleteCharAt(data.length() - 1);
         }
-        return sendPost(url, data.toString(), requestHeaderMap, "application/x-www-form-urlencoded");
+        return sendPost(url, data.toString(), requestHeaderMap, APPLICATION_DEFAULT);
     }
     
     
@@ -70,7 +97,7 @@ public class HttpUtil {
      * @datetime 2020-11-22 18:00:49
      */
     public static String sendPostJsonRequest(String url, String json, Map<String, Object> requestHeaderMap) throws IOException {
-        return sendPost(url, json, requestHeaderMap, "application/json");
+        return sendPost(url, json, requestHeaderMap, APPLICATION_JSON);
     }
     
     
@@ -89,14 +116,13 @@ public class HttpUtil {
         HttpURLConnection conn = (HttpURLConnection) new URL(url).openConnection();
         setRequestHeader(conn, requestHeaderMap);
         conn.setConnectTimeout(5000);
-        conn.setRequestMethod("post");
-        System.out.println(requestBody);
+        conn.setRequestMethod(METHOD_POST);
         //允许对外输出数据
         conn.setDoOutput(true);
-        conn.setRequestProperty("Content-Type", contentType);
+        conn.setRequestProperty(CONTENT_TYPE, contentType);
         if (requestBody != null) {
             byte[] entity = requestBody.getBytes();
-            conn.setRequestProperty("Content-Length", String.valueOf(entity.length));
+            conn.setRequestProperty(CONTENT_LENGTH, String.valueOf(entity.length));
             OutputStream outStream = conn.getOutputStream();
             outStream.write(entity);
         }

@@ -37,6 +37,33 @@ public class MapperUtil {
 
 
     /**
+     * 操作结果集到封装Map
+     * @param resultSet
+     * @return Map<String,Object>
+     * @author 唐小甫
+     * @datetime 2020-12-05 23:35:13
+     */
+    public static Map<String, Object> rowMapperMap(ResultSet resultSet) {
+        try {
+            Map<String, Object> map = new HashMap<String, Object>(16);
+            // 获取结果集字段集合
+            ResultSetMetaData metaData = resultSet.getMetaData();
+            // 获取结果集字段数量
+            int columnCount = metaData.getColumnCount();
+            for (int i = 0; i < columnCount; i++) {
+                String columnName = metaData.getColumnLabel(i + 1);
+                Object columnValue = resultSet.getObject(i + 1);
+                map.put(MapperUtil.sqlNameTohumpName(columnName), columnValue);
+            }
+            return map;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+
+    /**
      * 利用反射操作结果集，封装到自定义对象
      * @param <T>
      * @param resultSet
@@ -66,33 +93,6 @@ public class MapperUtil {
 
 
     /**
-     * 操作结果集到封装Map
-     * @param resultSet
-     * @return Map<String,Object>
-     * @author 唐小甫
-     * @datetime 2020-12-05 23:35:13
-     */
-    public static Map<String, Object> rowMapperMap(ResultSet resultSet) {
-        try {
-            Map<String, Object> map = new HashMap<String, Object>(16);
-            // 获取结果集字段集合
-            ResultSetMetaData metaData = resultSet.getMetaData();
-            // 获取结果集字段数量
-            int columnCount = metaData.getColumnCount();
-            for (int i = 0; i < columnCount; i++) {
-                String columnName = metaData.getColumnLabel(i + 1);
-                Object columnValue = resultSet.getObject(i + 1);
-                map.put(MapperUtil.sqlNameTohumpName(columnName), columnValue);
-            }
-            return map;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-
-    /**
      * 依赖注入
      * @param <T>
      * @param instance
@@ -107,7 +107,7 @@ public class MapperUtil {
     private static <T> void dependencyInjection(T instance, Method[] methods, ResultSet resultSet, String columnName, Integer columnId) throws Exception {
         for (Method method : methods) {
             String methodName = method.getName();
-            if (!methodName.startsWith("resultSet")) {
+            if (!methodName.startsWith("set")) {
                 continue;
             }
             String fieldName = MapperUtil.setMethodNameToFieldName(methodName);
@@ -192,7 +192,7 @@ public class MapperUtil {
      * @datetime 2020-12-05 23:33:34
      */
     public static String fieldNameToSetMethodName(String fieldName) {
-        return fieldNameToMethodName(fieldName, "resultSet");
+        return fieldNameToMethodName(fieldName, "set");
     }
 
 
@@ -211,14 +211,14 @@ public class MapperUtil {
     /**
      * 属性名转方法名+方法前缀
      * @param fieldName
-     * @param methodPreName
+     * @param preffix
      * @return String
      * @author 唐小甫
      * @datetime 2020-12-05 23:33:34
      */
-    public static String fieldNameToMethodName(String fieldName, String methodPreName) {
+    public static String fieldNameToMethodName(String fieldName, String preffix) {
         char ch = fieldName.charAt(0);
         fieldName = fieldName.replaceFirst(ch + "", Character.toUpperCase(ch) + "");
-        return methodPreName + fieldName;
+        return preffix + fieldName;
     }
 }

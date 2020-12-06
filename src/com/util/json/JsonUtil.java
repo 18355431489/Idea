@@ -1,11 +1,14 @@
 package com.util.json;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -24,7 +27,7 @@ public class JsonUtil {
      * @author 唐小甫
      * @datetime 2020-11-26 21:01:48
      */
-    public static <T> String toJsonString(T t) {
+    public static <T> String toJson(T t) {
         ObjectMapper objectMapper = new ObjectMapper();
         // 获取成员值时设置可见性
         objectMapper.setVisibility(PropertyAccessor.FIELD, Visibility.ANY);
@@ -49,7 +52,7 @@ public class JsonUtil {
      * @author 唐小甫
      * @datetime 2020-11-26 21:05:19
      */
-    public static <T> T jsonString2Object(String json, Class<T> clazz) {
+    public static <T> T json2Object(String json, Class<T> clazz) {
         // JSON工厂对象设置属性兼容单引号
         JsonFactory jsonFactory = new JsonFactory();
         jsonFactory.enable(JsonParser.Feature.ALLOW_SINGLE_QUOTES);
@@ -68,6 +71,28 @@ public class JsonUtil {
     
     
     /**
+     * json转List集合
+     * @param <T>
+     * @param json
+     * @param clazz 对象字节对象
+     * @return List<T>
+     * @author 唐小甫
+     * @datetime 2020-12-06 22:18:06
+     */
+    public static <T> List<T> jsonToList(String json, Class<T> clazz) {
+        ObjectMapper objectMapper = new ObjectMapper();
+        JavaType javaType = objectMapper.getTypeFactory().constructParametricType(List.class, clazz);
+        try {
+            List<T> list = objectMapper.readValue(json, javaType);
+            return list;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
+    
+    /**
      * 对象类型转换
      * @param <T>
      * @param object
@@ -77,7 +102,7 @@ public class JsonUtil {
      * @datetime 2020-11-26 21:07:17
      */
     public static <T> T objectTrans4(Object object, Class<T> clazz) {
-        String json = toJsonString(object);
-        return jsonString2Object(json, clazz);
+        String json = toJson(object);
+        return json2Object(json, clazz);
     }
 }
