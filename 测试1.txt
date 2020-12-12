@@ -1,4 +1,4 @@
-a
-bab
-cbabababc
-dcbabababcdcbabababcbabababcbabababcdcbabababcd
+   aa
+  bbbb
+ cccccc
+dddddddd
