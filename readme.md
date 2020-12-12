@@ -78,7 +78,8 @@
 	&lt;groupId&gt;commons-dbutils&lt;/groupId&gt;
 	&lt;artifactId&gt;commons-dbutils&lt;/artifactId&gt;
 	&lt;version&gt;1.7&lt;/version&gt;
-&lt;/dependency&gt;<br>
+&lt;/dependency&gt;
+
 &lt;!-- https://mvnrepository.com/artifact/com.mchange/mchange-commons-java --&gt;
 &lt;dependency&gt;
 	&lt;groupId&gt;com.mchange&lt;/groupId&gt;
@@ -102,13 +103,15 @@
 	&lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;
 	&lt;artifactId&gt;jackson-core&lt;/artifactId&gt;
 	&lt;version&gt;2.10.0&lt;/version&gt;
-&lt;/dependency&gt;<br>
+&lt;/dependency&gt;
+
 &lt;!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations --&gt;
 &lt;dependency&gt;
 	&lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;
 	&lt;artifactId&gt;jackson-annotations&lt;/artifactId&gt;
 	&lt;version&gt;2.10.0&lt;/version&gt;
-&lt;/dependency&gt;<br>
+&lt;/dependency&gt;
+
 &lt;!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind --&gt;
 &lt;dependency&gt;
 	&lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;
