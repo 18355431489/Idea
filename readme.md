@@ -4,7 +4,7 @@
 
 + **EmailUtil.java**  
 	*javax.mail-api-1.5.4.jar*  
-	&lt;code&gt;
+	<code>
 		&lt;!-- https://mvnrepository.com/artifact/javax.mail/javax.mail-api --&gt;
 		&lt;dependency&gt;
 		   &lt;groupId&gt;javax.mail&lt;/groupId&gt;
@@ -18,7 +18,7 @@
 	
 + **OkHttpUtil.java**  
 	*okhttp-4.8.0.jar*  
-	&lt;code&gt;
+	<code>
 		&lt;!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp --&gt;
 		&lt;dependency&gt;
 		   &lt;groupId&gt;com.squareup.okhttp3&lt;/groupId&gt;
@@ -32,7 +32,7 @@
 
 + **JdbcUtil.java**  
 	*mysql-connector-java-5.0.7.jar*  
-	&lt;code&gt;
+	<code>
 		&lt;!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java --&gt;
 		&lt;dependency&gt;
 		   &lt;groupId&gt;mysql&lt;/groupId&gt;
@@ -44,7 +44,7 @@
 ---
 + **DruidUtil.java**  
 	*druid-1.1.11.jar*  
-	&lt;code&gt;
+	<code>
 		&lt;!-- https://mvnrepository.com/artifact/com.alibaba/druid --&gt;
 		&lt;dependency&gt;
 		   &lt;groupId&gt;com.alibaba&lt;/groupId&gt;
@@ -63,7 +63,7 @@
 	*commons-dbutils-1.7.jar*  
 	*mchange-commons-java-0.2.12.jar*  
 	*JdbcUtil.java*  
-	&lt;code&gt;
+	<code>
 		&lt;!-- https://mvnrepository.com/artifact/commons-dbutils/commons-dbutils --&gt;
 		&lt;dependency&gt;
 		    &lt;groupId&gt;commons-dbutils&lt;/groupId&gt;
@@ -86,7 +86,7 @@
 	*jackson-core-2.10.0.jar*  
 	*jackson-annotations-2.10.0.jar*  
 	*jackson-databind-2.10.0.jar*  
-	&lt;code&gt;
+	<code>
 		&lt;!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core --&gt;
 		&lt;dependency&gt;
 		    &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;
@@ -124,7 +124,7 @@
 + **ResponseUtil.java**  
 	*servlet-api-2.5.jar*  
 	*ContentType.java*  
-	&lt;code&gt;
+	<code>
 		&lt;!-- https://mvnrepository.com/artifact/javax.servlet/servlet-api --&gt;
 		&lt;dependency&gt;
 		    &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
@@ -132,5 +132,5 @@
 		    &lt;version&gt;2.5&lt;/version&gt;
 		    &lt;scope&gt;provided&lt;/scope&gt;
 		&lt;/dependency&gt;
-	&lt;/code&gt;  
+	</code>
 	
