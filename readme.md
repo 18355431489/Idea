@@ -4,15 +4,16 @@
 
 + **EmailUtil.java**  
 	*javax.mail-api-1.5.4.jar*  
-	
-	<code><pre>   
-		<!-- https://mvnrepository.com/artifact/javax.mail/javax.mail-api -->
-		<dependency>
-		   <groupId>javax.mail</groupId>
-		   <artifactId>javax.mail-api</artifactId>
-		   <version>1.5.4</version>
-		</dependency>   
-	</pre></code>
+	<code>
+		<pre>
+			<!-- https://mvnrepository.com/artifact/javax.mail/javax.mail-api -->
+			<dependency>
+			   <groupId>javax.mail</groupId>
+			   <artifactId>javax.mail-api</artifactId>
+			   <version>1.5.4</version>
+			</dependency>   
+		</pre>
+	</code>
 ---
 
 ### com.util.http
