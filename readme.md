@@ -1,8 +1,8 @@
 # 文件依赖
 
-## com.util.emil
+## 1、com.util.emil
 
-### EmailUtil.java
+### 1.1、EmailUtil.java
 *javax.mail-api-1.5.4.jar*<br>
 <pre>
 <code>
@@ -16,9 +16,9 @@
 </pre>
 
 ---
-## com.util.http
+## 2、com.util.http
 
-### OkHttpUtil.java
+### 2.1、OkHttpUtil.java
 *okhttp-4.8.0.jar*<br>
 <pre>
 <code>
@@ -32,9 +32,9 @@
 </pre>
 
 ---
-## com.util.jdbc
+## 3、com.util.jdbc
 
-### JdbcUtil.java
+### 3.1、JdbcUtil.java
 *mysql-connector-java-5.0.7.jar*<br>
 <pre>
 <code>
@@ -48,7 +48,7 @@
 </pre>
 
 ---
-### DruidUtil.java
+### 3.2、DruidUtil.java
 *druid-1.1.11.jar*<br>
 <pre>
 <code>
@@ -62,12 +62,12 @@
 </pre>
 
 ---
-### DBUtil.java
+### 3.3、DBUtil.java
 *MapperUtil.java*<br>
 *JdbcUtil.java*
 
 ---
-### QueryRunnerDbUtil.java
+### 3.4、QueryRunnerDbUtil.java
 *commons-dbutils-1.7.jar*<br>
 *mchange-commons-java-0.2.12.jar*<br>
 *JdbcUtil.java*<br>
@@ -90,9 +90,9 @@
 </pre>
 
 ---
-## com.util.json
+## 4、com.util.json
 
-### JsonUtil.java
+### 4.1、JsonUtil.java
 *jackson-core-2.10.0.jar*<br>
 *jackson-annotations-2.10.0.jar*<br>
 *jackson-databind-2.10.0.jar*<br>
@@ -122,18 +122,18 @@
 </pre>
 
 ---
-## com.util.servlet
+## 5、com.util.servlet
 
-### CookieUtil.java
+### 5.1、CookieUtil.java
 *servlet-api-2.5.jar*
 
 ---
-### RequestUtil.java
+### 5.2、RequestUtil.java
 *servlet-api-2.5.jar*<br>
 *JavaTypeUtil.java*
 
 ---
-### ResponseUtil.java
+### 5.3、ResponseUtil.java
 *servlet-api-2.5.jar*<br>
 *ContentType.java*<br>
 <pre>
