@@ -19,8 +19,8 @@
 ## 2、com.util.http
 
 ### 2.1、OkHttpUtil.java
-*okhttp-4.8.0.jar*<br>
-*okio-2.7.0.jar*<br>
+*okhttp-4.8.0.jar*
+*okio-2.7.0.jar*
 <pre>
 <code>
 &lt;!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp --&gt;
@@ -176,6 +176,6 @@
 	&lt;groupId&gt;com.google.zxing&lt;/groupId&gt;
 	&lt;artifactId&gt;javase&lt;/artifactId&gt;
 	&lt;version&gt;3.3.1&lt;/version&gt;
-</dependency&gt;
+&lt;/dependency&gt;
 </code>
 </pre>
