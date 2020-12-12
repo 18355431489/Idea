@@ -1,21 +1,21 @@
-#文件依赖
+# 文件依赖
 
-###com.util.emil
+### com.util.emil
 
-+ **EmailUtil.java**
++ **EmailUtil.java**  
 	*javax.mail-api-1.5.4.jar*  
 	
 	<code>   
-		<!-- https://mvnrepository.com/artifact/javax.mail/javax.mail-api -->
-		<dependency>
-		   <groupId>javax.mail</groupId>
-		   <artifactId>javax.mail-api</artifactId>
-		   <version>1.5.4</version>
-		</dependency>   
+		`<!-- https://mvnrepository.com/artifact/javax.mail/javax.mail-api -->`
+		`<dependency>`
+		   `<groupId>javax.mail</groupId>`
+		   `<artifactId>javax.mail-api</artifactId>`
+		   `<version>1.5.4</version>`
+		`</dependency>`   
 	</code>
 ---
 
-###com.util.http
+### com.util.http
 	
 + **OkHttpUtil.java**  
 	*okhttp-4.8.0.jar*  
@@ -30,7 +30,7 @@
 
 
 
-###com.util.jdbc
+### com.util.jdbc
 
 + **JdbcUtil.java**  
 	*mysql-connector-java-5.0.7.jar*  
@@ -79,7 +79,7 @@
 	</dependency>
 ---
 
-###com.util.json
+### com.util.json
 
 + **JsonUtil.java**  
 	*jackson-core-2.10.0.jar*  
@@ -108,7 +108,7 @@
 	</dependency>
 ---
 
-###com.util.servlet
+### com.util.servlet
 
 + **CookieUtil.java**  
 	*servlet-api-2.5.jar*
