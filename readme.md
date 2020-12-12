@@ -15,7 +15,7 @@
 </code>
 </pre>
 
----
+
 ## 2、com.util.http
 
 ### 2.1、OkHttpUtil.java
@@ -39,7 +39,7 @@
 </code>
 </pre>
 
----
+
 ## 3、com.util.jdbc
 
 ### 3.1、JdbcUtil.java
@@ -55,7 +55,7 @@
 </code>
 </pre>
 
----
+
 ### 3.2、DruidUtil.java
 *druid-1.1.11.jar*<br>
 <pre>
@@ -69,12 +69,12 @@
 </code>
 </pre>
 
----
+
 ### 3.3、DBUtil.java
 *MapperUtil.java*<br>
 *JdbcUtil.java*
 
----
+
 ### 3.4、QueryRunnerDbUtil.java
 *commons-dbutils-1.7.jar*<br>
 *mchange-commons-java-0.2.12.jar*<br>
@@ -97,7 +97,7 @@
 </code>
 </pre>
 
----
+
 ## 4、com.util.json
 
 ### 4.1、JsonUtil.java
@@ -129,18 +129,18 @@
 </code>
 </pre>
 
----
+
 ## 5、com.util.servlet
 
 ### 5.1、CookieUtil.java
 *servlet-api-2.5.jar*
 
----
+
 ### 5.2、RequestUtil.java
 *servlet-api-2.5.jar*<br>
 *JavaTypeUtil.java*
 
----
+
 ### 5.3、ResponseUtil.java
 *servlet-api-2.5.jar*<br>
 *ContentType.java*<br>
@@ -153,5 +153,29 @@
 	&lt;version&gt;2.5&lt;/version&gt;
 	&lt;scope&gt;provided&lt;/scope&gt;
 &lt;/dependency&gt;
+</code>
+</pre>
+
+
+## 6、com.util.qrcode
+
+### 6.1、QrcodeUtil
+*zxing-core-3.3.1.jar*<br>
+*zxing-javase-3.3.1.jar*<br>
+<pre>
+<code>
+&lt;!-- https://mvnrepository.com/artifact/com.google.zxing/core --&gt;
+&lt;dependency&gt;
+	&lt;groupId&gt;com.google.zxing&lt;/groupId&gt;
+	&lt;artifactId&gt;core&lt;/artifactId&gt;
+	&lt;version&gt;3.3.1&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;!-- https://mvnrepository.com/artifact/com.google.zxing/javase --&gt;
+&lt;dependency&gt;
+	&lt;groupId&gt;com.google.zxing&lt;/groupId&gt;
+	&lt;artifactId&gt;javase&lt;/artifactId&gt;
+	&lt;version&gt;3.3.1&lt;/version&gt;
+</dependency&gt;
 </code>
 </pre>
