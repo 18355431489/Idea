@@ -1,8 +1,11 @@
 package com.util;
 
-import java.sql.SQLException;
-import com.util.jdbc.JdbcUtil;
-import com.util.jdbc.QueryRunnerDBUtil;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+import com.util.http.OkHttpUtil;
+import com.util.json.JsonUtil;
 
 /**
  * 测试类
@@ -11,20 +14,14 @@ import com.util.jdbc.QueryRunnerDBUtil;
  * @datetime: 2020-12-06 12:02:52
  */
 public class Demo {
-    public static void main(String[] args) {
-        String sql = null;
-        try {
-            sql = "insert into tb_user(username, money) values(?, ?)";
-            Long id = QueryRunnerDBUtil.executeSave(sql, "刘德华", 99556699);
-            System.out.println(id);
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                JdbcUtil.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
+    public static void main(String[] args) throws IOException {
+        String baseUrl = "https://img-home.csdnimg.cn/data_json/toolbar/toolbar.json";
+        Map<String, Object> params = new HashMap<String, Object>();
+        params.put("1", null);
+        String json = OkHttpUtil.sendGet(baseUrl, params, null);
+        System.out.println(json);
+        @SuppressWarnings("unchecked")
+        Map<String, Object> map = JsonUtil.json2Object(json, Map.class);
+        System.out.println(map);
     }
 }

@@ -20,6 +20,7 @@
 
 ### 2.1、OkHttpUtil.java
 *okhttp-4.8.0.jar*<br>
+*okio-2.7.0.jar*<br>
 <pre>
 <code>
 &lt;!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp --&gt;
@@ -27,6 +28,13 @@
 	&lt;groupId&gt;com.squareup.okhttp3&lt;/groupId&gt;
 	&lt;artifactId&gt;okhttp&lt;/artifactId&gt;
 	&lt;version&gt;4.8.0&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;!-- https://mvnrepository.com/artifact/com.squareup.okio/okio --&gt;
+&lt;dependency&gt;
+	&lt;groupId&gt;com.squareup.okio&lt;/groupId&gt;
+	&lt;artifactId&gt;okio&lt;/artifactId&gt;
+	&lt;version&gt;2.7.0&lt;/version&gt;
 &lt;/dependency&gt;
 </code>
 </pre>

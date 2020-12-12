@@ -61,7 +61,7 @@ public class SnowflakeIdWorker {
     
  
     /**
-     * 获得下一个ID (该方法是线程安全的)
+     * 雪花算法获得下一个ID(线程安全)
      * @return long
      * @author 唐小甫
      * @datetime 2020-12-06 16:29:03
