@@ -19,8 +19,8 @@
 ## 2、com.util.http
 
 ### 2.1、OkHttpUtil.java
-*okhttp-4.8.0.jar*
-*okio-2.7.0.jar*
+*okhttp-4.8.0.jar*<br>
+*okio-2.7.0.jar*<br>
 <pre>
 <code>
 &lt;!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp --&gt;
@@ -159,9 +159,8 @@
 
 ## 6、com.util.qrcode
 
-### 6.1、QrcodeUtil
+### 6.1、QrCodeUtil.java
 *zxing-core-3.3.1.jar*<br>
-*zxing-javase-3.3.1.jar*<br>
 <pre>
 <code>
 &lt;!-- https://mvnrepository.com/artifact/com.google.zxing/core --&gt;
@@ -170,11 +169,18 @@
 	&lt;artifactId&gt;core&lt;/artifactId&gt;
 	&lt;version&gt;3.3.1&lt;/version&gt;
 &lt;/dependency&gt;
+</code>
+</pre>
 
-&lt;!-- https://mvnrepository.com/artifact/com.google.zxing/javase --&gt;
+
+### 6.2、BufferedImageLuminanceSource.java
+*zxing-core-3.3.1.jar*<br>
+<pre>
+<code>
+&lt;!-- https://mvnrepository.com/artifact/com.google.zxing/core --&gt;
 &lt;dependency&gt;
 	&lt;groupId&gt;com.google.zxing&lt;/groupId&gt;
-	&lt;artifactId&gt;javase&lt;/artifactId&gt;
+	&lt;artifactId&gt;core&lt;/artifactId&gt;
 	&lt;version&gt;3.3.1&lt;/version&gt;
 &lt;/dependency&gt;
 </code>
